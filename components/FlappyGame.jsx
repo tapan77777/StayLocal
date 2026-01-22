@@ -1,570 +1,372 @@
 'use client';
-import { useEffect, useRef, useState } from 'react';
+import { Calendar, Check, ChevronDown, MapPin, Users, X } from 'lucide-react';
+import { useState } from 'react';
 
-const SubwayCringeRunner = () => {
-  const [playerLane, setPlayerLane] = useState(1); // 0=left, 1=middle, 2=right
-  const [playerY, setPlayerY] = useState(0);
-  const [isJumping, setIsJumping] = useState(false);
-  const [velocity, setVelocity] = useState(0);
-  const [obstacles, setObstacles] = useState([]);
-  const [coins, setCoins] = useState([]);
-  const [score, setScore] = useState(0);
-  const [distance, setDistance] = useState(0);
-  const [gameOver, setGameOver] = useState(false);
-  const [gameStarted, setGameStarted] = useState(false);
-  const [highScore, setHighScore] = useState(0);
-  const [powerUp, setPowerUp] = useState(null);
-  const [invincible, setInvincible] = useState(false);
-  const [celebration, setCelebration] = useState('');
-  const [isMuted, setIsMuted] = useState(false);
-  const [speed, setSpeed] = useState(8);
-  const [cringe, setCringe] = useState('');
-  const [isSliding, setIsSliding] = useState(false);
+const StayLocal = () => {
+  const [expandedDay, setExpandedDay] = useState(null);
 
-  const gameLoopRef = useRef();
-  const obstacleIntervalRef = useRef();
-  const coinIntervalRef = useRef();
-  const audioContextRef = useRef(null);
-
-  const GAME_WIDTH = typeof window !== 'undefined' ? Math.min(400, window.innerWidth - 40) : 400;
-  const GAME_HEIGHT = typeof window !== 'undefined' ? Math.min(600, window.innerHeight - 250) : 600;
-  const LANE_WIDTH = GAME_WIDTH / 3;
-  const PLAYER_SIZE = 50;
-  const GROUND_Y = GAME_HEIGHT - 150;
-  const GRAVITY = 1.2;
-  const JUMP_POWER = -18;
-
-  const cringeCharacters = ['😬', '🤡', '💩', '🤓', '🥴', '😵‍💫'];
-  const cringeObstacles = ['📱', '🚫', '❌', '💔', '🗑️', '☠️', '🧱', '⚠️'];
-  const cringeCoins = ['👍', '❤️', '🔥', '💯', '✨', '⭐'];
-  const ultraCringePhrases = [
-    'YOLO SWAG! 😎✌️', 'ON FLEEK! 💅✨', 'LIT FAM! 🔥👌', 'DOPE AF! 🤙💯',
-    'SAVAGE BRO! 😤🙌', 'SLAY QUEEN! 💃👑', 'NO CAP FR FR! 🧢🚫', 'BUSSIN BUSSIN! 😋🍔',
-    'PERIODT! 💅💋', 'ITS GIVING! ✨💖', 'SNATCHED! 🔥💪', 'VIBE CHECK! ✅😌',
-    'LIVING MY BEST LIFE! 🌈🦋', 'MAIN CHARACTER ENERGY! 🎬⭐', 'UNDERSTOOD THE ASSIGNMENT! 📝✅'
+  const days = [
+    {
+      day: 1,
+      title: "Arrival & Settling In",
+      location: "Jibhi Valley",
+      stay: "Local homestay with valley views",
+      activities: [
+        "Afternoon arrival from Delhi",
+        "Welcome tea and introductions",
+        "Evening walk around the village",
+        "Dinner with your hosts"
+      ],
+      pace: "Easy arrival day",
+      focus: "Meeting the place and people"
+    },
+    {
+      day: 2,
+      title: "Forest & Waterfall",
+      location: "Jibhi",
+      stay: "Same homestay",
+      activities: [
+        "No rush morning — breakfast when ready",
+        "Walk to Chehni Kothi (ancient fort)",
+        "Forest trail to Jibhi waterfall",
+        "Afternoon rest or explore village",
+        "Evening around the bonfire"
+      ],
+      pace: "Slow exploration",
+      focus: "Nature and local architecture"
+    },
+    {
+      day: 3,
+      title: "Move to Shoja",
+      location: "Shoja",
+      stay: "Mountain homestay",
+      activities: [
+        "Morning at leisure",
+        "Short drive to Shoja (1 hour)",
+        "Walk to Jalori Pass viewpoint",
+        "Evening with local family",
+        "Home-cooked Himachali dinner"
+      ],
+      pace: "Gentle transition",
+      focus: "Mountain silence"
+    },
+    {
+      day: 4,
+      title: "High Altitude Day",
+      location: "Shoja – Manali",
+      stay: "Manali homestay",
+      activities: [
+        "Morning hike to Serolsar Lake",
+        "Packed lunch by the lake",
+        "Afternoon drive to Manali",
+        "Evening free in Old Manali",
+        "Group dinner"
+      ],
+      pace: "Active morning, restful evening",
+      focus: "Alpine lakes and altitude"
+    },
+    {
+      day: 5,
+      title: "Departure",
+      location: "Manali – Delhi",
+      stay: "Journey home",
+      activities: [
+        "Breakfast with the group",
+        "Morning buffer time",
+        "Afternoon departure to Delhi",
+        "Arrive Delhi evening"
+      ],
+      pace: "Relaxed goodbye",
+      focus: "Reflection and closure"
+    }
   ];
-  const cringeDeathMessages = [
-    'NOT COOL BRO! 😭💔', 'MEGA CRINGE! 🤮👎', 'THATS SO 2010! 📟💀', 'EPIC FAIL! ⚠️😵',
-    'AWKWARD... 😬🙈', 'YIKES DUDE! 😰🚨', 'CANCELLED! ❌🚫', 'MOOD: DESTROYED 💔😢'
+
+  const inclusions = [
+    "Delhi to Delhi transport (tempo traveler)",
+    "All local transfers and road journeys",
+    "4 nights homestay accommodation",
+    "All meals — breakfast, lunch, dinner",
+    "Guided walks and local experiences",
+    "Mountain buffer time (weather/roads)"
   ];
 
-  const [currentChar, setCurrentChar] = useState(cringeCharacters[0]);
+  const thisIsFor = [
+    "Travelers who like slow mornings",
+    "People curious about local culture",
+    "Nature lovers who enjoy walks",
+    "Those seeking genuine connections",
+    "Small group comfort"
+  ];
 
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-      audioContextRef.current = new (window.AudioContext || window.webkitAudioContext)();
-    }
-  }, []);
-
-  const playCringeSound = (type) => {
-    if (isMuted || !audioContextRef.current) return;
-    const ctx = audioContextRef.current;
-
-    if (type === 'jump') {
-      const osc = ctx.createOscillator();
-      const gain = ctx.createGain();
-      osc.connect(gain);
-      gain.connect(ctx.destination);
-      osc.frequency.setValueAtTime(400, ctx.currentTime);
-      osc.frequency.exponentialRampToValueAtTime(800, ctx.currentTime + 0.1);
-      gain.gain.setValueAtTime(0.3, ctx.currentTime);
-      gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.1);
-      osc.start(ctx.currentTime);
-      osc.stop(ctx.currentTime + 0.1);
-    } else if (type === 'move') {
-      const osc = ctx.createOscillator();
-      const gain = ctx.createGain();
-      osc.connect(gain);
-      gain.connect(ctx.destination);
-      osc.frequency.setValueAtTime(300, ctx.currentTime);
-      gain.gain.setValueAtTime(0.15, ctx.currentTime);
-      gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.05);
-      osc.start(ctx.currentTime);
-      osc.stop(ctx.currentTime + 0.05);
-    } else if (type === 'coin') {
-      [600, 800].forEach((freq, i) => {
-        const osc = ctx.createOscillator();
-        const gain = ctx.createGain();
-        osc.connect(gain);
-        gain.connect(ctx.destination);
-        osc.frequency.setValueAtTime(freq, ctx.currentTime + i * 0.05);
-        gain.gain.setValueAtTime(0.2, ctx.currentTime + i * 0.05);
-        gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + i * 0.05 + 0.1);
-        osc.start(ctx.currentTime + i * 0.05);
-        osc.stop(ctx.currentTime + i * 0.05 + 0.1);
-      });
-    } else if (type === 'death') {
-      [500, 400, 300, 200].forEach((freq, i) => {
-        const osc = ctx.createOscillator();
-        const gain = ctx.createGain();
-        osc.connect(gain);
-        gain.connect(ctx.destination);
-        osc.type = 'sawtooth';
-        osc.frequency.setValueAtTime(freq, ctx.currentTime + i * 0.15);
-        gain.gain.setValueAtTime(0.3, ctx.currentTime + i * 0.15);
-        gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + i * 0.15 + 0.2);
-        osc.start(ctx.currentTime + i * 0.15);
-        osc.stop(ctx.currentTime + i * 0.15 + 0.2);
-      });
-    } else if (type === 'powerup') {
-      [400, 500, 600, 700, 800].forEach((freq, i) => {
-        const osc = ctx.createOscillator();
-        const gain = ctx.createGain();
-        osc.connect(gain);
-        gain.connect(ctx.destination);
-        osc.frequency.setValueAtTime(freq, ctx.currentTime + i * 0.05);
-        gain.gain.setValueAtTime(0.2, ctx.currentTime + i * 0.05);
-        gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + i * 0.05 + 0.1);
-        osc.start(ctx.currentTime + i * 0.05);
-        osc.stop(ctx.currentTime + i * 0.05 + 0.1);
-      });
-    }
-  };
-
-  const playBackgroundCringe = () => {
-    if (isMuted || !audioContextRef.current || !gameStarted || gameOver) return;
-    const ctx = audioContextRef.current;
-    const notes = [300, 350, 400, 350, 300, 350, 400, 450];
-    
-    notes.forEach((freq, i) => {
-      const osc = ctx.createOscillator();
-      const gain = ctx.createGain();
-      osc.connect(gain);
-      gain.connect(ctx.destination);
-      osc.type = 'square';
-      osc.frequency.setValueAtTime(freq, ctx.currentTime + i * 0.15);
-      gain.gain.setValueAtTime(0.03, ctx.currentTime + i * 0.15);
-      gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + i * 0.15 + 0.1);
-      osc.start(ctx.currentTime + i * 0.15);
-      osc.stop(ctx.currentTime + i * 0.15 + 0.15);
-    });
-  };
-
-  const moveLeft = () => {
-    if (playerLane > 0) {
-      setPlayerLane(l => l - 1);
-      playCringeSound('move');
-    }
-  };
-
-  const moveRight = () => {
-    if (playerLane < 2) {
-      setPlayerLane(l => l + 1);
-      playCringeSound('move');
-    }
-  };
-
-  const jump = () => {
-    if (playerY >= GROUND_Y && !isJumping && !isSliding) {
-      setVelocity(JUMP_POWER);
-      setIsJumping(true);
-      playCringeSound('jump');
-    }
-  };
-
-  const slide = () => {
-    if (!isJumping && !isSliding) {
-      setIsSliding(true);
-      setTimeout(() => setIsSliding(false), 500);
-    }
-  };
-
-  const resetGame = () => {
-    setPlayerLane(1);
-    setPlayerY(0);
-    setObstacles([]);
-    setCoins([]);
-    setScore(0);
-    setDistance(0);
-    setGameOver(false);
-    setGameStarted(false);
-    setVelocity(0);
-    setIsJumping(false);
-    setIsSliding(false);
-    setPowerUp(null);
-    setInvincible(false);
-    setSpeed(8);
-    setCurrentChar(cringeCharacters[Math.floor(Math.random() * cringeCharacters.length)]);
-  };
-
-  useEffect(() => {
-    const handleKeyDown = (e) => {
-      if (!gameStarted && !gameOver) {
-        setGameStarted(true);
-        return;
-      }
-      if (gameOver) {
-        resetGame();
-        return;
-      }
-
-      if (e.key === 'ArrowLeft' || e.key === 'a' || e.key === 'A') {
-        e.preventDefault();
-        moveLeft();
-      } else if (e.key === 'ArrowRight' || e.key === 'd' || e.key === 'D') {
-        e.preventDefault();
-        moveRight();
-      } else if (e.key === 'ArrowUp' || e.key === 'w' || e.key === 'W' || e.code === 'Space') {
-        e.preventDefault();
-        jump();
-      } else if (e.key === 'ArrowDown' || e.key === 's' || e.key === 'S') {
-        e.preventDefault();
-        slide();
-      }
-    };
-
-    window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [gameStarted, gameOver, playerLane, playerY, isJumping, isSliding]);
-
-  useEffect(() => {
-    if (gameStarted && !gameOver) {
-      const musicInterval = setInterval(() => {
-        playBackgroundCringe();
-      }, 1200);
-      return () => clearInterval(musicInterval);
-    }
-  }, [gameStarted, gameOver, isMuted]);
-
-  useEffect(() => {
-    if (!gameStarted || gameOver) return;
-
-    gameLoopRef.current = setInterval(() => {
-      if (isJumping) {
-        setVelocity(v => v + GRAVITY);
-        setPlayerY(y => {
-          const newY = y + velocity;
-          if (newY >= GROUND_Y) {
-            setIsJumping(false);
-            return GROUND_Y;
-          }
-          return newY;
-        });
-      } else {
-        setPlayerY(GROUND_Y);
-      }
-
-      setDistance(d => d + 1);
-      if (distance % 150 === 0 && distance > 0) {
-        setSpeed(s => Math.min(s + 0.5, 15));
-      }
-
-      setObstacles(prev => {
-        const moved = prev.map(o => ({ ...o, z: o.z - speed })).filter(o => o.z > -100);
-        
-        moved.forEach(obs => {
-          const playerBottom = GROUND_Y + PLAYER_SIZE;
-          const playerTop = GROUND_Y - playerY + (isSliding ? PLAYER_SIZE/2 : 0);
-          
-          if (!invincible && obs.z < 50 && obs.z > -50 && obs.lane === playerLane) {
-            if (obs.type === 'ground') {
-              if (playerBottom > obs.y && !isJumping) {
-                setGameOver(true);
-                playCringeSound('death');
-                if (score > highScore) setHighScore(score);
-                setCringe(cringeDeathMessages[Math.floor(Math.random() * cringeDeathMessages.length)]);
-              }
-            } else if (obs.type === 'air') {
-              if (playerTop < obs.y + obs.height && playerTop > obs.y - PLAYER_SIZE) {
-                setGameOver(true);
-                playCringeSound('death');
-                if (score > highScore) setHighScore(score);
-                setCringe(cringeDeathMessages[Math.floor(Math.random() * cringeDeathMessages.length)]);
-              }
-            }
-          }
-        });
-
-        return moved;
-      });
-
-      setCoins(prev => {
-        const moved = prev.map(c => ({ ...c, z: c.z - speed })).filter(c => c.z > -100);
-        
-        moved.forEach((coin) => {
-          if (!coin.collected && coin.z < 50 && coin.z > -50 && coin.lane === playerLane) {
-            const playerTop = GROUND_Y - playerY;
-            if (Math.abs(playerTop - coin.y) < PLAYER_SIZE) {
-              setScore(s => s + (coin.isPowerUp ? 10 : 1));
-              playCringeSound(coin.isPowerUp ? 'powerup' : 'coin');
-              
-              if (coin.isPowerUp) {
-                setInvincible(true);
-                setPowerUp('🌟');
-                setCelebration(ultraCringePhrases[Math.floor(Math.random() * ultraCringePhrases.length)]);
-                setTimeout(() => {
-                  setInvincible(false);
-                  setPowerUp(null);
-                  setCelebration('');
-                }, 3000);
-              } else {
-                setCelebration(ultraCringePhrases[Math.floor(Math.random() * ultraCringePhrases.length)]);
-                setTimeout(() => setCelebration(''), 800);
-              }
-              
-              coin.collected = true;
-            }
-          }
-        });
-
-        return moved.filter(c => !c.collected);
-      });
-    }, 20);
-
-    return () => clearInterval(gameLoopRef.current);
-  }, [gameStarted, gameOver, playerY, velocity, invincible, speed, distance, isJumping, playerLane, isSliding]);
-
-  useEffect(() => {
-    if (!gameStarted || gameOver) return;
-
-    obstacleIntervalRef.current = setInterval(() => {
-      const lane = Math.floor(Math.random() * 3);
-      const type = Math.random() > 0.5 ? 'ground' : 'air';
-      
-      setObstacles(o => [...o, {
-        z: GAME_HEIGHT,
-        lane,
-        type,
-        y: type === 'ground' ? GROUND_Y : GROUND_Y - 100,
-        height: type === 'ground' ? 50 : 60,
-        emoji: cringeObstacles[Math.floor(Math.random() * cringeObstacles.length)]
-      }]);
-    }, 1200 / (speed / 8));
-
-    return () => clearInterval(obstacleIntervalRef.current);
-  }, [gameStarted, gameOver, speed]);
-
-  useEffect(() => {
-    if (!gameStarted || gameOver) return;
-
-    coinIntervalRef.current = setInterval(() => {
-      const lane = Math.floor(Math.random() * 3);
-      const isPowerUp = Math.random() > 0.9;
-      setCoins(c => [...c, {
-        z: GAME_HEIGHT,
-        lane,
-        y: GROUND_Y - 50 - Math.random() * 80,
-        emoji: isPowerUp ? '🌟' : cringeCoins[Math.floor(Math.random() * cringeCoins.length)],
-        isPowerUp,
-        collected: false
-      }]);
-    }, 800);
-
-    return () => clearInterval(coinIntervalRef.current);
-  }, [gameStarted, gameOver]);
-
-  const getLaneX = (lane) => lane * LANE_WIDTH + LANE_WIDTH / 2;
-
-  const getScale = (z) => {
-    const minScale = 0.3;
-    const maxScale = 1.5;
-    return minScale + ((GAME_HEIGHT - z) / GAME_HEIGHT) * (maxScale - minScale);
-  };
-
-  const getY = (baseY, z) => {
-    return baseY - (GAME_HEIGHT - z) * 0.3;
-  };
+  const thisIsNotFor = [
+    "Rushed sightseeing schedules",
+    "Party or nightlife trips",
+    "Instagram content creation",
+    "Luxury hotel expectations",
+    "Solo travel (group experience)"
+  ];
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-b from-purple-900 via-pink-700 to-orange-600 p-2 sm:p-4">
-      <div className="mb-2 sm:mb-4 text-center">
-        <h1 className="text-3xl sm:text-5xl font-bold text-white mb-2 drop-shadow-lg animate-pulse" 
-            style={{fontFamily: 'Comic Sans MS, cursive'}}>
-          🏃 CRINGE SUBWAY RUNNER 🚇
-        </h1>
-        <div className="flex items-center justify-center gap-2 sm:gap-4 text-white text-base sm:text-xl flex-wrap">
-          <span className="animate-bounce">Score: <span className="font-bold text-yellow-300">{score}</span> 🏆</span>
-          <span>Distance: <span className="font-bold text-pink-300">{Math.floor(distance/10)}m</span> 🏃</span>
-          <span>Best: <span className="font-bold text-green-300">{highScore}</span> 👑</span>
-          {powerUp && <span className="text-2xl animate-spin">{powerUp}</span>}
-          <button
-            onClick={() => setIsMuted(!isMuted)}
-            className="bg-white bg-opacity-20 hover:bg-opacity-30 rounded-full p-2 transition text-sm"
+    <div className="bg-stone-50 text-stone-900">
+      {/* Hero Section */}
+      <section className="relative h-screen flex items-center justify-center overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-stone-900/40 to-stone-900/60 z-10" />
+        <img 
+          src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1920&q=80" 
+          alt="Mountain landscape"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+        <div className="relative z-20 text-center text-white px-6 max-w-4xl">
+          <h1 className="text-5xl md:text-7xl font-serif mb-6 leading-tight">
+            Stay local. Move slow.
+          </h1>
+          <p className="text-xl md:text-2xl mb-12 text-stone-200 font-light leading-relaxed">
+            Travel that follows the rhythm of the place — not a checklist.
+          </p>
+          <button 
+            onClick={() => document.getElementById('journey').scrollIntoView({ behavior: 'smooth' })}
+            className="bg-white text-stone-900 px-8 py-4 rounded-full text-lg font-medium hover:bg-stone-100 transition-colors"
           >
-            {isMuted ? '🔇' : '🔊'}
+            View the Journey
           </button>
         </div>
-        {speed > 8 && <p className="text-white text-sm animate-pulse mt-1">⚡ SPEED: {speed.toFixed(1)}x ⚡</p>}
-      </div>
+      </section>
 
-      <div
-        className="relative bg-gradient-to-b from-gray-700 via-gray-600 to-gray-500 rounded-lg shadow-2xl overflow-hidden"
-        style={{ width: GAME_WIDTH, height: GAME_HEIGHT, perspective: '800px' }}
-      >
-        {/* Rainbow trail when invincible */}
-        {invincible && (
-          <div className="absolute inset-0 bg-gradient-to-r from-red-400 via-yellow-400 to-green-400 opacity-40 animate-pulse" />
-        )}
-
-        {/* Lane dividers - 3D perspective */}
-        {[0, 1, 2, 3].map(i => (
-          <div
-            key={i}
-            className="absolute bg-yellow-400 opacity-60"
-            style={{
-              left: i * LANE_WIDTH,
-              top: 0,
-              width: 3,
-              height: GAME_HEIGHT,
-              transform: 'rotateY(0deg) translateZ(0px)'
-            }}
-          />
-        ))}
-
-        {/* Ground pattern */}
-        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-gray-800 to-transparent">
-          <div className="absolute bottom-0 left-0 right-0 h-2 bg-yellow-500" />
+      {/* Why StayLocal */}
+      <section className="py-24 px-6">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-4xl md:text-5xl font-serif mb-16 text-center">
+            Why StayLocal
+          </h2>
+          <div className="grid md:grid-cols-2 gap-12">
+            <div className="space-y-6">
+              <h3 className="text-2xl font-serif text-stone-800">Not a commercial tour</h3>
+              <p className="text-stone-600 leading-relaxed">
+                We don't run tourist packages. This is a slow, intentional journey with people who value depth over distance.
+              </p>
+            </div>
+            <div className="space-y-6">
+              <h3 className="text-2xl font-serif text-stone-800">Small groups only</h3>
+              <p className="text-stone-600 leading-relaxed">
+                6–8 travelers maximum. Enough for connection, small enough to stay intimate with the place.
+              </p>
+            </div>
+            <div className="space-y-6">
+              <h3 className="text-2xl font-serif text-stone-800">Local stays, local food</h3>
+              <p className="text-stone-600 leading-relaxed">
+                Homestays with families who've lived here for generations. Meals cooked in home kitchens, not restaurants.
+              </p>
+            </div>
+            <div className="space-y-6">
+              <h3 className="text-2xl font-serif text-stone-800">Experience itinerary</h3>
+              <p className="text-stone-600 leading-relaxed">
+                We follow the weather, the mood, the moment. No rigid timelines. Just presence.
+              </p>
+            </div>
+          </div>
         </div>
+      </section>
 
-        {/* Obstacles - 3D perspective */}
-        {obstacles.map((obs, i) => {
-          const scale = getScale(obs.z);
-          const displayY = getY(obs.y, obs.z);
-          
-          return (
-            <div
-              key={i}
-              className="absolute bg-red-600 border-4 border-red-800 rounded-lg flex items-center justify-center shadow-2xl transition-all"
-              style={{
-                left: getLaneX(obs.lane) - (40 * scale) / 2,
-                top: displayY,
-                width: 40 * scale,
-                height: obs.height * scale,
-                fontSize: 25 * scale,
-                opacity: scale
-              }}
-            >
-              {obs.emoji}
+      {/* Journey Overview */}
+      <section id="journey" className="py-24 px-6 bg-white">
+        <div className="max-w-5xl mx-auto">
+          <h2 className="text-4xl md:text-5xl font-serif mb-16 text-center">
+            The Journey
+          </h2>
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="bg-stone-50 p-8 rounded-2xl">
+              <MapPin className="w-8 h-8 text-stone-600 mb-4" />
+              <h3 className="text-xl font-serif mb-3 text-stone-800">Location</h3>
+              <p className="text-stone-600">Jibhi – Shoja – Manali</p>
+              <p className="text-sm text-stone-500 mt-2">Himachal Pradesh</p>
             </div>
-          );
-        })}
-
-        {/* Coins - 3D perspective */}
-        {coins.map((coin, i) => {
-          const scale = getScale(coin.z);
-          const displayY = getY(coin.y, coin.z);
-          
-          return (
-            <div
-              key={i}
-              className={`absolute ${coin.isPowerUp ? 'animate-spin' : 'animate-bounce'} transition-all`}
-              style={{
-                left: getLaneX(coin.lane) - (20 * scale),
-                top: displayY,
-                fontSize: 30 * scale,
-                opacity: scale
-              }}
-            >
-              {coin.emoji}
+            <div className="bg-stone-50 p-8 rounded-2xl">
+              <Calendar className="w-8 h-8 text-stone-600 mb-4" />
+              <h3 className="text-xl font-serif mb-3 text-stone-800">Duration</h3>
+              <p className="text-stone-600">5 Nights / 4 Days</p>
+              <p className="text-sm text-stone-500 mt-2">Delhi to Delhi</p>
             </div>
-          );
-        })}
-
-        {/* Player - bottom center with jump */}
-        <div
-          className={`absolute transition-all duration-100 ${invincible ? 'animate-pulse' : ''}`}
-          style={{
-            left: getLaneX(playerLane) - PLAYER_SIZE / 2,
-            bottom: 150 - playerY + (isSliding ? PLAYER_SIZE/2 : 0),
-            fontSize: isSliding ? PLAYER_SIZE * 0.6 : PLAYER_SIZE,
-            transform: `${isJumping ? 'rotate(-10deg)' : 'rotate(0deg)'} ${isSliding ? 'scaleY(0.5)' : 'scaleY(1)'}`,
-            zIndex: 100
-          }}
-        >
-          {invincible ? '✨' : currentChar}
+            <div className="bg-stone-50 p-8 rounded-2xl">
+              <Users className="w-8 h-8 text-stone-600 mb-4" />
+              <h3 className="text-xl font-serif mb-3 text-stone-800">Group Size</h3>
+              <p className="text-stone-600">6–8 travelers</p>
+              <p className="text-sm text-stone-500 mt-2">Small & intimate</p>
+            </div>
+          </div>
         </div>
+      </section>
 
-        {/* Celebration */}
-        {celebration && (
-          <div className="absolute top-20 left-1/2 transform -translate-x-1/2 text-lg sm:text-2xl font-bold text-white animate-bounce pointer-events-none z-10 bg-black bg-opacity-60 px-3 py-2 rounded-full"
-               style={{fontFamily: 'Comic Sans MS, cursive'}}>
-            {celebration}
+      {/* Day-wise Plan */}
+      <section className="py-24 px-6">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-4xl md:text-5xl font-serif mb-16 text-center">
+            Day by Day
+          </h2>
+          <div className="space-y-4">
+            {days.map((day) => (
+              <div key={day.day} className="bg-white rounded-2xl overflow-hidden shadow-sm">
+                <button
+                  onClick={() => setExpandedDay(expandedDay === day.day ? null : day.day)}
+                  className="w-full p-6 flex items-center justify-between hover:bg-stone-50 transition-colors"
+                >
+                  <div className="text-left">
+                    <div className="flex items-center gap-4">
+                      <span className="text-3xl font-serif text-stone-400">
+                        {String(day.day).padStart(2, '0')}
+                      </span>
+                      <div>
+                        <h3 className="text-xl font-serif text-stone-800">{day.title}</h3>
+                        <p className="text-stone-500 text-sm">{day.location}</p>
+                      </div>
+                    </div>
+                  </div>
+                  <ChevronDown 
+                    className={`w-6 h-6 text-stone-400 transition-transform ${
+                      expandedDay === day.day ? 'rotate-180' : ''
+                    }`}
+                  />
+                </button>
+                {expandedDay === day.day && (
+                  <div className="px-6 pb-6 pt-2 border-t border-stone-100">
+                    <div className="grid md:grid-cols-2 gap-6 mb-6">
+                      <div>
+                        <p className="text-sm text-stone-500 mb-2">Where we stay</p>
+                        <p className="text-stone-700">{day.stay}</p>
+                      </div>
+                      <div>
+                        <p className="text-sm text-stone-500 mb-2">Pace of the day</p>
+                        <p className="text-stone-700">{day.pace}</p>
+                      </div>
+                    </div>
+                    <div className="mb-6">
+                      <p className="text-sm text-stone-500 mb-3">What we do</p>
+                      <ul className="space-y-2">
+                        {day.activities.map((activity, idx) => (
+                          <li key={idx} className="text-stone-700 pl-6 relative before:content-['·'] before:absolute before:left-0 before:text-stone-400">
+                            {activity}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                    <div className="bg-stone-50 p-4 rounded-xl">
+                      <p className="text-sm text-stone-500">Experience focus</p>
+                      <p className="text-stone-700 font-medium">{day.focus}</p>
+                    </div>
+                  </div>
+                )}
+              </div>
+            ))}
           </div>
-        )}
+        </div>
+      </section>
 
-        {/* Start screen */}
-        {!gameStarted && !gameOver && (
-          <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50">
-            <div className="text-center text-white p-4">
-              <p className="text-2xl sm:text-4xl font-bold mb-4 animate-bounce" style={{fontFamily: 'Comic Sans MS, cursive'}}>
-                🚇 TAP TO START! 🚇
-              </p>
-              <p className="text-sm sm:text-base mb-2">← → or A/D: Switch lanes</p>
-              <p className="text-sm sm:text-base mb-2">↑ or W/Space: Jump</p>
-              <p className="text-sm sm:text-base mb-2">↓ or S: Slide</p>
-              <p className="text-xs sm:text-sm mt-2 text-yellow-300">Swipe on mobile! 📱</p>
+      {/* What's Included */}
+      <section className="py-24 px-6 bg-white">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-4xl md:text-5xl font-serif mb-16 text-center">
+            What's Included
+          </h2>
+          <div className="space-y-4">
+            {inclusions.map((item, idx) => (
+              <div key={idx} className="flex items-start gap-4 p-4">
+                <Check className="w-5 h-5 text-stone-600 mt-1 flex-shrink-0" />
+                <p className="text-lg text-stone-700">{item}</p>
+              </div>
+            ))}
+          </div>
+          <div className="mt-12 p-6 bg-stone-50 rounded-2xl">
+            <p className="text-stone-600 leading-relaxed">
+              <strong className="text-stone-800">A note on mountain travel:</strong> Weather and road conditions in the Himalayas can be unpredictable. We build buffer time into the journey and adapt when needed. This is part of mountain travel — we embrace it.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Who This Is For / Not For */}
+      <section className="py-24 px-6">
+        <div className="max-w-5xl mx-auto">
+          <h2 className="text-4xl md:text-5xl font-serif mb-16 text-center">
+            Who This Is For
+          </h2>
+          <div className="grid md:grid-cols-2 gap-12">
+            <div className="bg-white p-8 rounded-2xl">
+              <h3 className="text-2xl font-serif mb-6 text-stone-800">This is for you if</h3>
+              <ul className="space-y-4">
+                {thisIsFor.map((item, idx) => (
+                  <li key={idx} className="flex items-start gap-3">
+                    <Check className="w-5 h-5 text-green-700 mt-1 flex-shrink-0" />
+                    <span className="text-stone-700">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="bg-white p-8 rounded-2xl">
+              <h3 className="text-2xl font-serif mb-6 text-stone-800">This is NOT for you if</h3>
+              <ul className="space-y-4">
+                {thisIsNotFor.map((item, idx) => (
+                  <li key={idx} className="flex items-start gap-3">
+                    <X className="w-5 h-5 text-red-700 mt-1 flex-shrink-0" />
+                    <span className="text-stone-700">{item}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
-        )}
+          <p className="text-center text-stone-600 mt-12 max-w-2xl mx-auto leading-relaxed">
+            This clarity helps us travel with the right people. If this resonates, you'll love the journey.
+          </p>
+        </div>
+      </section>
 
-        {/* Game over */}
-        {gameOver && (
-          <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-70">
-            <div className="text-center text-white p-4">
-              <p className="text-3xl sm:text-5xl font-bold mb-2 animate-pulse" style={{fontFamily: 'Comic Sans MS, cursive'}}>
-                {cringe}
-              </p>
-              <p className="text-xl sm:text-3xl mb-2">Score: {score} 🏆</p>
-              <p className="text-lg sm:text-2xl mb-4">Distance: {Math.floor(distance/10)}m 🏃</p>
-              {score > highScore && (
-                <p className="text-lg sm:text-xl text-yellow-300 mb-4 animate-bounce">
-                  🎉 NEW RECORD! SLAY! 🎉
-                </p>
-              )}
-              <p className="text-sm sm:text-lg" style={{fontFamily: 'Comic Sans MS, cursive'}}>
-                TAP OR PRESS ANY KEY TO RETRY! 😤✨
-              </p>
-            </div>
-          </div>
-        )}
-      </div>
+      {/* StayLocal Promise */}
+      <section className="py-24 px-6 bg-stone-800 text-white">
+        <div className="max-w-3xl mx-auto text-center">
+          <h2 className="text-4xl md:text-5xl font-serif mb-8">
+            The StayLocal Promise
+          </h2>
+          <p className="text-xl md:text-2xl text-stone-300 leading-relaxed font-light">
+            We don't promise perfection. We promise honesty, warmth, and respect for the places we visit.
+          </p>
+          <p className="text-lg text-stone-400 mt-8 leading-relaxed">
+            We pay our hosts fairly. We travel responsibly. We show up with curiosity, not consumption. This is travel that honors the land and the people who call it home.
+          </p>
+        </div>
+      </section>
 
-      <div className="mt-2 sm:mt-4 text-white text-center drop-shadow">
-        <p className="text-xs sm:text-sm" style={{fontFamily: 'Comic Sans MS, cursive'}}>
-          🚇 SUBWAY SURFER BUT CRINGE! 🚇
+      {/* Contact / Join */}
+      <section className="py-24 px-6">
+        <div className="max-w-2xl mx-auto text-center">
+          <h2 className="text-4xl md:text-5xl font-serif mb-6">
+            Interested in Joining?
+          </h2>
+          <p className="text-xl text-stone-600 mb-12 leading-relaxed">
+            We'd love to hear from you. Share a bit about yourself and why this journey calls to you.
+          </p>
+          <a
+            href="https://wa.me/1234567890?text=Hi, I'm interested in the StayLocal journey to Jibhi-Shoja-Manali"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block bg-stone-900 text-white px-10 py-5 rounded-full text-lg font-medium hover:bg-stone-800 transition-colors"
+          >
+            Start a Conversation
+          </a>
+          <p className="text-sm text-stone-500 mt-6">
+            No pressure. Just a conversation.
+          </p>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="py-12 px-6 bg-stone-900 text-stone-400 text-center">
+        <p className="text-sm">
+          StayLocal — Travel with intention
         </p>
-        <p className="text-xs sm:text-sm mt-1">Arrows/WASD or Swipe to move! Collect 🌟 for power!</p>
-      </div>
-
-      {/* Mobile swipe overlay */}
-      <div 
-        className="fixed inset-0 touch-none z-50 pointer-events-auto md:hidden"
-        onTouchStart={(e) => {
-          if (!gameStarted && !gameOver) {
-            setGameStarted(true);
-            return;
-          }
-          if (gameOver) {
-            resetGame();
-            return;
-          }
-          
-          const touch = e.touches[0];
-          const startX = touch.clientX;
-          const startY = touch.clientY;
-          
-          const handleTouchMove = (moveEvent) => {
-            const moveTouch = moveEvent.touches[0];
-            const deltaX = moveTouch.clientX - startX;
-            const deltaY = moveTouch.clientY - startY;
-            
-            if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > 50) {
-              if (deltaX > 0) moveRight();
-              else moveLeft();
-              window.removeEventListener('touchmove', handleTouchMove);
-            } else if (Math.abs(deltaY) > 50) {
-              if (deltaY < 0) jump();
-              else slide();
-              window.removeEventListener('touchmove', handleTouchMove);
-            }
-          };
-          
-          window.addEventListener('touchmove', handleTouchMove);
-          setTimeout(() => window.removeEventListener('touchmove', handleTouchMove), 300);
-        }}
-      />
+        <p className="text-xs mt-2 text-stone-500">
+          Made with care for slow travelers
+        </p>
+      </footer>
     </div>
   );
 };
 
-export default SubwayCringeRunner;
+export default StayLocal;
