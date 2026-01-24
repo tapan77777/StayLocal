@@ -1,7 +1,7 @@
 'use client';
-import { Calendar, Camera, Check, ChevronDown, ChevronLeft, ChevronRight, Instagram, Mail, MapPin, Menu, Mountain, Phone, Users, X, XIcon } from 'lucide-react';
+import { Calendar, Camera, Check, ChevronDown, ChevronLeft, ChevronRight, MapPin, Menu, Mountain, Users, X, XIcon } from 'lucide-react';
 import { useEffect, useState } from 'react';
-
+import PricingSection from './price';
 const StayLocal = () => {
   const [expandedDay, setExpandedDay] = useState(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -225,9 +225,14 @@ const StayLocal = () => {
           className="absolute inset-0 w-full h-full object-cover animate-zoomSlow"
         />
         <div className="relative z-20 text-center text-white px-6 max-w-4xl animate-fadeInUp">
+          <button 
+            onClick={() => scrollToSection('journey')}
+            
+          >
           <div className="mb-8 inline-block">
-            <Mountain className="w-16 h-16 mx-auto mb-4 animate-float" />
+            <img src="favicon.ico" alt="Logo" className="w-60 h-60 mx-auto animate-float" />
           </div>
+          </button>
           <h1 className="text-5xl md:text-7xl font-serif mb-6 leading-tight animate-slideDown">
             Stay local. Move slow.
           </h1>
@@ -565,66 +570,7 @@ const StayLocal = () => {
         </div>
       </section>
 
-      {/* Contact Section */}
-      <section id="contact" className="py-24 px-6 bg-gradient-to-br from-white to-emerald-50">
-        <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-serif mb-6 bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent">
-              Interested in Joining?
-            </h2>
-            <p className="text-xl text-slate-600 leading-relaxed">
-              We'd love to hear from you. Share a bit about yourself and why this journey calls to you.
-            </p>
-          </div>
-          
-          <div className="grid md:grid-cols-3 gap-8 mb-12">
-            <a
-              href="https://wa.me/1234567890"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group bg-gradient-to-br from-green-500 to-emerald-600 text-white p-8 rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 text-center"
-            >
-              <Phone className="w-12 h-12 mx-auto mb-4 group-hover:scale-110 transition-transform" />
-              <h3 className="text-xl font-serif mb-2">WhatsApp</h3>
-              <p className="text-green-100 text-sm">Quick chat</p>
-            </a>
-            
-            <a
-              href="mailto:hello@staylocal.com"
-              className="group bg-gradient-to-br from-blue-500 to-cyan-600 text-white p-8 rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 text-center"
-            >
-              <Mail className="w-12 h-12 mx-auto mb-4 group-hover:scale-110 transition-transform" />
-              <h3 className="text-xl font-serif mb-2">Email</h3>
-              <p className="text-blue-100 text-sm">hello@staylocal.com</p>
-            </a>
-            
-            <a
-              href="https://instagram.com/staylocal"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group bg-gradient-to-br from-pink-500 to-rose-600 text-white p-8 rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 text-center"
-            >
-              <Instagram className="w-12 h-12 mx-auto mb-4 group-hover:scale-110 transition-transform" />
-              <h3 className="text-xl font-serif mb-2">Instagram</h3>
-              <p className="text-pink-100 text-sm">@staylocal</p>
-            </a>
-          </div>
-          
-          <div className="text-center">
-            <a
-              href="https://wa.me/1234567890?text=Hi, I'm interested in the StayLocal journey"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block bg-gradient-to-r from-emerald-600 to-teal-600 text-white px-12 py-6 rounded-full text-xl font-semibold hover:shadow-2xl hover:scale-105 transition-all duration-300"
-            >
-              Start a Conversation
-            </a>
-            <p className="text-sm text-slate-500 mt-6">
-              No pressure. Just a conversation.
-            </p>
-          </div>
-        </div>
-      </section>
+<PricingSection/>
 
       {/* Footer */}
       <footer className="py-12 px-6 bg-gradient-to-br from-slate-900 to-emerald-900 text-slate-300">
