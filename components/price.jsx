@@ -50,7 +50,7 @@ const PricingSection = () => {
 {/* CTA Button */}
 <div className="text-center">
   <a
-    href="https://forms.gle/Fb1X1MnjFvbp5AkP9"
+    href="https://forms.gle/GJuAs71C2dujDDs3A"
     target="_blank"
     rel="noopener noreferrer"
     className="inline-block bg-gradient-to-r from-emerald-600 to-teal-600 text-white px-16 py-6 rounded-full text-2xl font-bold shadow-2xl hover:shadow-emerald-500/50 transition-all duration-300 hover:scale-105 hover:from-emerald-500 hover:to-teal-500 active:scale-95"
