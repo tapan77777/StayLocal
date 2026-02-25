@@ -44,81 +44,126 @@ const StayLocal = () => {
   };
 
   const days = [
-    {
-      day: 1,
-      title: "Arrival & Settling In",
-      location: "Jibhi Valley",
-      stay: "Local homestay with valley views",
-      activities: [
-        "Afternoon arrival from Delhi",
-        "Welcome tea and introductions",
-        "Evening walk around the village",
-        "Dinner with your hosts"
-      ],
-      pace: "Easy arrival day",
-      focus: "Meeting the place and people"
-    },
-    {
-      day: 2,
-      title: "Forest & Waterfall",
-      location: "Jibhi",
-      stay: "Same homestay",
-      activities: [
-        "No rush morning — breakfast when ready",
-        "Walk to Chehni Kothi (ancient fort)",
-        "Forest trail to Jibhi waterfall",
-        "Afternoon rest or explore village",
-        "Evening around the bonfire"
-      ],
-      pace: "Slow exploration",
-      focus: "Nature and local architecture"
-    },
-    {
-      day: 3,
-      title: "Move to Shoja & Jalori Pass",
-      location: "Shoja",
-      stay: "Mountain homestay",
-      activities: [
-        "Morning at leisure",
-        "Short drive to Shoja (1 hour)",
-        "Afternoon trek to Jalori Pass viewpoint",
-        "Witness panoramic Himalayan views",
-        "Evening with local family",
-        "Home-cooked Himachali dinner"
-      ],
-      pace: "Gentle transition",
-      focus: "Mountain silence & alpine beauty"
-    },
-    {
-      day: 4,
-      title: "High Altitude Day",
-      location: "Shoja – Manali",
-      stay: "Manali homestay",
-      activities: [
-        "Morning hike to Serolsar Lake",
-        "Packed lunch by the lake",
-        "Afternoon drive to Manali",
-        "Evening free in Old Manali",
-        "Group dinner"
-      ],
-      pace: "Active morning, restful evening",
-      focus: "Alpine lakes and altitude"
-    },
-    {
-      day: 5,
-      title: "Departure",
-      location: "Manali – Delhi",
-      stay: "Journey home",
-      activities: [
-        "Breakfast with the group",
-        "Morning buffer time",
-        "Afternoon departure to Delhi",
-        "Arrive Delhi evening"
-      ],
-      pace: "Relaxed goodbye",
-      focus: "Reflection and closure"
-    }
-  ];
+  {
+    day: 1,
+    title: "Departure Night",
+    location: "Delhi → Aut",
+    stay: "Overnight Volvo bus",
+    pace: "Slow start, overnight travel",
+    activities: [
+      "Board Volvo bus from Delhi at 9:00 PM",
+      "Overnight journey towards the mountains (~10 hours)",
+      "Rest and settle into the journey rhythm",
+    ],
+    focus: "Letting go of city pace and easing into travel",
+  },
+  {
+    day: 2,
+    title: "Arrival & Local Route",
+    location: "Aut → Jibhi",
+    stay: "Local homestay in Jibhi",
+    pace: "Unhurried, local experience",
+    activities: [
+      "Morning arrival at Aut",
+      "Travel from Aut to Jibhi by local bus (34 km, ~2 hours)",
+      "Reach homestay by afternoon and have lunch",
+      "Village walk, rest, and quiet evening",
+    ],
+    focus: "Experiencing the mountains through local movement",
+  },
+  {
+    day: 3,
+    title: "High Pass & Fort Walk",
+    location: "Jibhi → Jalori Pass",
+    stay: "Homestay in Jibhi",
+    pace: "Moderate activity with plenty of breaks",
+    activities: [
+      "Breakfast at the homestay",
+      "Drive to Jalori Pass by cab (~1 hour)",
+      "Walk and explore Raghupur Fort area",
+      "Evening return to Jibhi",
+    ],
+    focus: "Nature, altitude, and quiet exploration",
+  },
+  {
+    day: 4,
+    title: "Slow Day in the Village",
+    location: "Jibhi",
+    stay: "Homestay in Jibhi",
+    pace: "Very slow and flexible",
+    activities: [
+      "Late breakfast",
+      "Local exploration and short forest walks",
+      "Free time to rest, read, or simply be",
+    ],
+    focus: "Rest, reflection, and absorbing the place",
+  },
+  {
+    day: 5,
+    title: "Return Journey",
+    location: "Jibhi → Aut → Delhi",
+    stay: "Overnight Volvo bus",
+    pace: "Easy wrap-up",
+    activities: [
+      "Lunch in Jibhi",
+      "Travel from Jibhi to Aut",
+      "Board night Volvo bus back to Delhi",
+    ],
+    focus: "Closing the mountain chapter gently",
+  },
+  {
+    day: 6,
+    title: "Transit & Reset",
+    location: "Delhi",
+    stay: "Transit / rest",
+    pace: "Light and flexible",
+    activities: [
+      "Morning arrival in Delhi",
+      "Rest and reset",
+      "Late-night bus departure to Rishikesh (11:00 PM)",
+    ],
+    focus: "Transition from mountains to river town",
+  },
+  {
+    day: 7,
+    title: "River Town Arrival",
+    location: "Rishikesh",
+    stay: "Hostel in Rishikesh",
+    pace: "Balanced activity",
+    activities: [
+      "Morning arrival in Rishikesh",
+      "Hostel check-in",
+      "Afternoon river rafting",
+      "Relaxed evening",
+    ],
+    focus: "Energy, water, and movement",
+  },
+  {
+    day: 8,
+    title: "Explore at Your Own Pace",
+    location: "Rishikesh",
+    stay: "Hostel in Rishikesh",
+    pace: "Free and flexible",
+    activities: [
+      "Explore Rishikesh by scooty",
+      "Cafes, ghats, and local spots",
+      "Late-night roaming",
+    ],
+    focus: "Freedom and personal exploration",
+  },
+  {
+    day: 9,
+    title: "Journey Home",
+    location: "Haridwar → Home",
+    stay: "—",
+    pace: "Early start, calm end",
+    activities: [
+      "Early morning train from Haridwar (6:30 AM)",
+      "Journey back home",
+    ],
+    focus: "Carrying the journey back with you",
+  },
+]
 
   const inclusions = [
     "Delhi to Delhi transport (tempo traveler)",
@@ -290,10 +335,25 @@ const StayLocal = () => {
           </h2>
           <div className="grid md:grid-cols-3 gap-8">
             {[
-              { Icon: MapPin, title: "Location", value: "Jibhi – Shoja – Manali", sub: "Himachal Pradesh" },
-              { Icon: Calendar, title: "Duration", value: "5 Nights / 4 Days", sub: "Delhi to Delhi" },
-              { Icon: Users, title: "Group Size", value: "6–8 travelers", sub: "Small & intimate" }
-            ].map((item, idx) => (
+  {
+    Icon: MapPin,
+    title: "Route",
+    value: "Jibhi – Shoja – Rishikesh",
+    sub: "Himachal • Uttarakhand",
+  },
+  {
+    Icon: Calendar,
+    title: "Duration",
+    value: "9 Days",
+    sub: "3rd – 11th March",
+  },
+  {
+    Icon: Users,
+    title: "Group Size",
+    value: "Max 8 travelers",
+    sub: "Small & intentional",
+  },
+].map((item, idx) => (
               <div 
                 key={idx}
                 className="group bg-gradient-to-br from-white to-emerald-50 p-8 rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 border border-emerald-200"

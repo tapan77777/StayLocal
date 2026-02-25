@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react';
 
 const PricingSection = () => {
-  const bookedSpots = 5; // This would ideally come from an API or state management in a real app
+  const bookedSpots = 8; // This would ideally come from an API or state management in a real app
   const totalSpots = 8;
   const availableSpots = totalSpots - bookedSpots;
   const [showFloatingButton, setShowFloatingButton] = useState(false);
