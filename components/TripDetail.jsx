@@ -3,6 +3,7 @@ import { useState } from 'react';
 import Link from 'next/link';
 import {
   ArrowLeft,
+  ArrowRight,
   Calendar,
   Check,
   ChevronDown,
@@ -12,6 +13,9 @@ import {
   Users,
   X,
 } from 'lucide-react';
+import experiences from '@/data/experiences.json';
+
+const WA_NUMBER = '919178628894';
 
 /* ─── WhatsApp SVG ──────────────────────────────────────────────────────── */
 const WhatsAppIcon = ({ className }) => (
@@ -21,23 +25,27 @@ const WhatsAppIcon = ({ className }) => (
 );
 
 /* ─── Booking Card ──────────────────────────────────────────────────────── */
-const BookingCard = ({ trip }) => {
-  const filled = trip.totalSpots - trip.spotsLeft;
+const BookingCard = ({
+  trip,
+  selectedDuration,
+  setSelectedDuration,
+  selectedPackage,
+  setSelectedPackage,
+  activePrice,
+  waLink,
+}) => {
+  const filled   = trip.totalSpots - trip.spotsLeft;
   const progress = (filled / trip.totalSpots) * 100;
-  const waText = encodeURIComponent(
-    `Hi! I'm interested in the "${trip.title}" trip. Can you share more details?`
-  );
+  const durations = trip.durations ?? [];
 
   return (
     <div className="bg-white rounded-3xl shadow-2xl border border-slate-100 overflow-hidden">
-      {/* Price header */}
+
+      {/* ── Price header ── */}
       <div className="p-6 pb-5 border-b border-slate-100">
-        <p className="text-sm text-slate-400 line-through mb-0.5">
-          ₹{trip.originalPrice.toLocaleString('en-IN')}
-        </p>
         <div className="flex items-end gap-2">
           <span className="text-4xl font-bold text-emerald-700">
-            ₹{trip.price.toLocaleString('en-IN')}
+            ₹{activePrice.toLocaleString('en-IN')}
           </span>
           <span className="text-slate-400 mb-1 text-sm">/ person</span>
         </div>
@@ -45,7 +53,77 @@ const BookingCard = ({ trip }) => {
       </div>
 
       <div className="p-6 space-y-5">
-        {/* Spots progress */}
+
+        {/* ── Duration selector ── */}
+        {durations.length > 0 && (
+          <div>
+            <p className="text-xs font-semibold text-slate-500 uppercase tracking-widest mb-3">
+              Select Duration
+            </p>
+            <div className="flex flex-col gap-2">
+              {durations.map((d, i) => (
+                <button
+                  key={d.label}
+                  onClick={() => setSelectedDuration(i)}
+                  className={`relative flex items-center justify-between px-4 py-3 rounded-xl border text-sm font-medium transition-all duration-200 ${
+                    selectedDuration === i
+                      ? 'border-emerald-500 bg-emerald-50 text-emerald-700'
+                      : 'border-slate-200 bg-white text-slate-700 hover:border-slate-300 hover:bg-slate-50'
+                  }`}
+                >
+                  <span>{d.label}</span>
+                  <div className="flex items-center gap-2">
+                    {d.popular && (
+                      <span className="text-xs font-semibold bg-emerald-100 text-emerald-700 px-2 py-0.5 rounded-full">
+                        Popular
+                      </span>
+                    )}
+                    <span className={`font-semibold ${selectedDuration === i ? 'text-emerald-600' : 'text-slate-500'}`}>
+                      ₹{d.price[selectedPackage].toLocaleString('en-IN')}
+                    </span>
+                  </div>
+                </button>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* ── Package selector ── */}
+        <div>
+          <p className="text-xs font-semibold text-slate-500 uppercase tracking-widest mb-3">
+            Select Package
+          </p>
+          <div className="grid grid-cols-2 gap-2">
+            {[
+              { key: 'standard', label: 'Standard', badge: null },
+              { key: 'deluxe',   label: 'Deluxe',   badge: 'Best Value' },
+            ].map(({ key, label, badge }) => (
+              <button
+                key={key}
+                onClick={() => setSelectedPackage(key)}
+                className={`relative flex flex-col items-center justify-center px-3 py-3.5 rounded-xl border text-sm font-medium transition-all duration-200 ${
+                  selectedPackage === key
+                    ? 'border-emerald-500 bg-emerald-50 text-emerald-700'
+                    : 'border-slate-200 bg-white text-slate-700 hover:border-slate-300 hover:bg-slate-50'
+                }`}
+              >
+                {badge && (
+                  <span className="absolute -top-2 left-1/2 -translate-x-1/2 text-[10px] font-bold bg-amber-400 text-white px-2 py-0.5 rounded-full whitespace-nowrap">
+                    {badge}
+                  </span>
+                )}
+                <span>{label}</span>
+                {durations.length > 0 && (
+                  <span className={`text-xs mt-0.5 ${selectedPackage === key ? 'text-emerald-500' : 'text-slate-400'}`}>
+                    ₹{(durations[selectedDuration]?.price[key] ?? trip.price).toLocaleString('en-IN')}
+                  </span>
+                )}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        {/* ── Spots progress ── */}
         <div>
           <div className="flex justify-between text-sm mb-2">
             <span className="text-slate-500">Seats booked</span>
@@ -67,15 +145,11 @@ const BookingCard = ({ trip }) => {
           )}
         </div>
 
-        {/* Details */}
+        {/* ── Details ── */}
         <div className="space-y-3 text-sm divide-y divide-slate-50">
           <div className="flex justify-between py-1">
             <span className="text-slate-500">Next departure</span>
             <span className="font-medium text-slate-800">{trip.nextDeparture}</span>
-          </div>
-          <div className="flex justify-between py-1">
-            <span className="text-slate-500">Duration</span>
-            <span className="font-medium text-slate-800">{trip.shortDuration}</span>
           </div>
           <div className="flex justify-between py-1">
             <span className="text-slate-500">Advance to confirm</span>
@@ -85,15 +159,14 @@ const BookingCard = ({ trip }) => {
           </div>
         </div>
 
-        {/* Advance note */}
+        {/* ── Advance note ── */}
         <div className="bg-amber-50 border border-amber-100 rounded-xl p-3">
           <p className="text-xs text-amber-700 leading-relaxed">
-            Advance is non-refundable and secures your spot. Balance is due 7 days before
-            departure.
+            Advance is non-refundable and secures your spot. Balance is due 7 days before departure.
           </p>
         </div>
 
-        {/* Primary CTA */}
+        {/* ── Primary CTA ── */}
         <a
           href={trip.bookingLink}
           target="_blank"
@@ -103,9 +176,9 @@ const BookingCard = ({ trip }) => {
           Reserve Your Spot
         </a>
 
-        {/* Secondary CTA */}
+        {/* ── WhatsApp CTA ── */}
         <a
-          href={`https://wa.me/${trip.whatsapp}?text=${waText}`}
+          href={waLink}
           target="_blank"
           rel="noopener noreferrer"
           className="flex items-center justify-center gap-2 w-full border border-slate-200 text-slate-700 py-3 rounded-2xl font-medium text-sm hover:border-emerald-300 hover:text-emerald-700 transition-colors"
@@ -120,16 +193,26 @@ const BookingCard = ({ trip }) => {
 
 /* ─── Main Detail Component ─────────────────────────────────────────────── */
 const TripDetail = ({ trip }) => {
-  const [openFaq, setOpenFaq]       = useState(null);
-  const [expandedDay, setExpandedDay] = useState(0);
-  const [activeGallery, setActiveGallery] = useState(0);
+  const [openFaq,        setOpenFaq]        = useState(null);
+  const [expandedDay,    setExpandedDay]    = useState(0);
+  const [activeGallery,  setActiveGallery]  = useState(0);
 
-  const waText = encodeURIComponent(
-    `Hi! I'm interested in the "${trip.title}" trip. Can you share more details?`
-  );
+  /* ── Pricing state ── */
+  const durations = trip.durations ?? [];
+  const [selectedDuration, setSelectedDuration] = useState(0);
+  const [selectedPackage,  setSelectedPackage]  = useState('standard');
+
+  const activeDuration = durations[selectedDuration];
+  const activePrice    = activeDuration?.price?.[selectedPackage] ?? trip.price;
+
+  const waMessage = `Hi, I'm interested in the ${trip.title} trip.\n\nDuration: ${activeDuration?.label ?? trip.shortDuration}\nPackage: ${selectedPackage === 'standard' ? 'Standard' : 'Deluxe'}\nPrice: ₹${activePrice.toLocaleString('en-IN')}\n\nPlease share more details.`;
+  const waLink    = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(waMessage)}`;
+
+  const experience = experiences.find((e) => e.slug === trip.slug);
 
   return (
     <div className="min-h-screen bg-white">
+
       {/* ── Hero ────────────────────────────────────────────────────────── */}
       <div className="relative h-[55vh] md:h-[68vh] overflow-hidden">
         <img
@@ -139,7 +222,6 @@ const TripDetail = ({ trip }) => {
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
 
-        {/* Back */}
         <Link
           href="/#trips"
           className="absolute top-6 left-6 flex items-center gap-2 bg-white/20 backdrop-blur-sm text-white text-sm font-medium px-4 py-2 rounded-full hover:bg-white/30 transition-colors"
@@ -148,7 +230,6 @@ const TripDetail = ({ trip }) => {
           All Trips
         </Link>
 
-        {/* Hero text */}
         <div className="absolute bottom-0 left-0 right-0 px-6 pb-8 md:px-12">
           <div className="max-w-7xl mx-auto">
             <span className="inline-block bg-emerald-500/90 backdrop-blur-sm text-white text-xs font-semibold px-3 py-1 rounded-full mb-3 tracking-wider uppercase">
@@ -173,11 +254,11 @@ const TripDetail = ({ trip }) => {
       </div>
 
       {/* ── Body ────────────────────────────────────────────────────────── */}
-      <div className="max-w-7xl mx-auto px-6 py-12">
-        <div className="grid lg:grid-cols-3 gap-12 items-start">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-8 md:py-12">
+        <div className="grid lg:grid-cols-3 gap-8 lg:gap-12 items-start">
 
           {/* ── Left: content ───────────────────────────────────────────── */}
-          <div className="lg:col-span-2 space-y-16">
+          <div className="lg:col-span-2 space-y-12 md:space-y-16">
 
             {/* Overview */}
             <section>
@@ -201,6 +282,25 @@ const TripDetail = ({ trip }) => {
                 ))}
               </div>
             </section>
+
+            {/* From My Experience */}
+            {experience && (
+              <div className="bg-emerald-50 border-l-4 border-emerald-500 rounded-r-2xl p-5 sm:p-6">
+                <p className="text-xs font-semibold text-emerald-600 uppercase tracking-widest mb-3">
+                  From My Experience
+                </p>
+                <p className="text-slate-700 italic text-base leading-relaxed mb-4">
+                  &ldquo;{experience.founderNote}&rdquo;
+                </p>
+                <Link
+                  href={`/experience/${trip.slug}`}
+                  className="inline-flex items-center gap-1.5 text-emerald-600 font-semibold text-sm hover:text-emerald-700 transition-colors"
+                >
+                  Read my full account
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </Link>
+              </div>
+            )}
 
             {/* Highlights */}
             <section>
@@ -231,7 +331,7 @@ const TripDetail = ({ trip }) => {
                   >
                     <button
                       onClick={() => setExpandedDay(expandedDay === idx ? null : idx)}
-                      className="w-full flex items-center justify-between px-5 py-4 text-left hover:bg-slate-50 transition-colors"
+                      className="w-full flex items-center justify-between px-4 sm:px-5 py-4 min-h-[60px] text-left hover:bg-slate-50 transition-colors"
                     >
                       <div className="flex items-center gap-4">
                         <span className="w-9 h-9 bg-emerald-600 text-white rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0">
@@ -252,10 +352,7 @@ const TripDetail = ({ trip }) => {
                       <div className="px-5 pb-5 pt-1 border-t border-slate-100 bg-slate-50/50">
                         <ul className="space-y-2.5 mt-3">
                           {day.activities.map((activity, i) => (
-                            <li
-                              key={i}
-                              className="flex items-start gap-3 text-slate-600 text-sm"
-                            >
+                            <li key={i} className="flex items-start gap-3 text-slate-600 text-sm">
                               <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 mt-2 flex-shrink-0" />
                               {activity}
                             </li>
@@ -270,9 +367,8 @@ const TripDetail = ({ trip }) => {
 
             {/* Includes / Excludes */}
             <section>
-              <h2 className="text-2xl font-serif text-slate-900 mb-5">What's Included</h2>
+              <h2 className="text-2xl font-serif text-slate-900 mb-5">What&apos;s Included</h2>
               <div className="grid md:grid-cols-2 gap-5">
-                {/* Included */}
                 <div className="bg-green-50 border border-green-100 rounded-2xl p-6">
                   <h3 className="font-semibold text-green-800 mb-4 flex items-center gap-2 text-sm uppercase tracking-wide">
                     <Check className="w-4 h-4" /> Included
@@ -286,7 +382,6 @@ const TripDetail = ({ trip }) => {
                     ))}
                   </ul>
                 </div>
-                {/* Excluded */}
                 <div className="bg-red-50 border border-red-100 rounded-2xl p-6">
                   <h3 className="font-semibold text-red-800 mb-4 flex items-center gap-2 text-sm uppercase tracking-wide">
                     <X className="w-4 h-4" /> Not Included
@@ -306,7 +401,6 @@ const TripDetail = ({ trip }) => {
             {/* Gallery */}
             <section>
               <h2 className="text-2xl font-serif text-slate-900 mb-5">Gallery</h2>
-              {/* Main image */}
               <div className="rounded-2xl overflow-hidden mb-3 aspect-video">
                 <img
                   src={trip.gallery[activeGallery]}
@@ -314,24 +408,18 @@ const TripDetail = ({ trip }) => {
                   className="w-full h-full object-cover transition-all duration-300"
                 />
               </div>
-              {/* Thumbnails */}
-              <div className="grid grid-cols-4 gap-2">
+              <div className="grid grid-cols-4 gap-2 sm:gap-3">
                 {trip.gallery.map((img, i) => (
                   <button
                     key={i}
                     onClick={() => setActiveGallery(i)}
-                    className={`relative overflow-hidden rounded-xl aspect-square transition-all duration-200 ${
+                    className={`relative overflow-hidden rounded-xl aspect-square min-h-[64px] transition-all duration-200 ${
                       activeGallery === i
                         ? 'ring-2 ring-emerald-500 ring-offset-1'
                         : 'opacity-70 hover:opacity-100'
                     }`}
                   >
-                    <img
-                      src={img}
-                      alt=""
-                      className="w-full h-full object-cover"
-                      loading="lazy"
-                    />
+                    <img src={img} alt="" className="w-full h-full object-cover" loading="lazy" />
                   </button>
                 ))}
               </div>
@@ -344,17 +432,12 @@ const TripDetail = ({ trip }) => {
               </h2>
               <div className="space-y-2">
                 {trip.faqs.map((faq, i) => (
-                  <div
-                    key={i}
-                    className="border border-slate-200 rounded-2xl overflow-hidden"
-                  >
+                  <div key={i} className="border border-slate-200 rounded-2xl overflow-hidden">
                     <button
                       onClick={() => setOpenFaq(openFaq === i ? null : i)}
-                      className="w-full flex items-center justify-between px-5 py-4 text-left hover:bg-slate-50 transition-colors"
+                      className="w-full flex items-center justify-between px-4 sm:px-5 py-4 min-h-[60px] text-left hover:bg-slate-50 transition-colors"
                     >
-                      <span className="font-medium text-slate-800 text-sm pr-4">
-                        {faq.q}
-                      </span>
+                      <span className="font-medium text-slate-800 text-sm pr-4">{faq.q}</span>
                       <ChevronDown
                         className={`w-5 h-5 text-slate-400 flex-shrink-0 transition-transform duration-300 ${
                           openFaq === i ? 'rotate-180' : ''
@@ -375,11 +458,10 @@ const TripDetail = ({ trip }) => {
             <section className="bg-gradient-to-br from-slate-900 to-emerald-900 rounded-3xl p-8 text-center text-white">
               <h3 className="text-2xl font-serif mb-2">Still have questions?</h3>
               <p className="text-slate-300 mb-7 text-sm leading-relaxed">
-                Talk to us before booking. No bots, no scripts — just people who love slow
-                travel.
+                Talk to us before booking. No bots, no scripts — just people who love slow travel.
               </p>
               <a
-                href={`https://wa.me/${trip.whatsapp}?text=${waText}`}
+                href={waLink}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-3 bg-[#25D366] text-white px-8 py-4 rounded-full font-semibold text-lg hover:scale-105 active:scale-95 transition-transform shadow-lg"
@@ -391,44 +473,52 @@ const TripDetail = ({ trip }) => {
             </section>
 
             {/* Bottom padding for mobile bar */}
-            <div className="h-4 lg:hidden" />
+            <div className="h-28 lg:hidden" />
           </div>
 
-          {/* ── Right: sticky booking card (desktop only) ──────────────── */}
+          {/* ── Right: sticky booking card (desktop) ────────────────────── */}
           <div className="hidden lg:block">
             <div className="sticky top-24">
-              <BookingCard trip={trip} />
+              <BookingCard
+                trip={trip}
+                selectedDuration={selectedDuration}
+                setSelectedDuration={setSelectedDuration}
+                selectedPackage={selectedPackage}
+                setSelectedPackage={setSelectedPackage}
+                activePrice={activePrice}
+                waLink={waLink}
+              />
             </div>
           </div>
         </div>
       </div>
 
       {/* ── Mobile sticky bottom bar ─────────────────────────────────────── */}
-      <div className="lg:hidden fixed bottom-0 left-0 right-0 z-50 bg-white border-t border-slate-200 shadow-2xl px-4 py-3">
+      <div className="lg:hidden fixed bottom-0 left-0 right-0 z-50 bg-white border-t border-slate-200 shadow-[0_-4px_24px_rgba(0,0,0,0.08)] px-4 pt-3 pb-[calc(0.75rem+env(safe-area-inset-bottom,0px))]">
         <div className="flex items-center gap-3">
           <div className="flex-shrink-0 leading-tight">
-            <p className="text-xs text-slate-400 line-through">
-              ₹{trip.originalPrice.toLocaleString('en-IN')}
+            <p className="text-[10px] text-slate-400 uppercase tracking-wide">
+              {activeDuration?.label ?? trip.shortDuration} · {selectedPackage === 'standard' ? 'Standard' : 'Deluxe'}
             </p>
             <p className="text-xl font-bold text-emerald-700">
-              ₹{trip.price.toLocaleString('en-IN')}
+              ₹{activePrice.toLocaleString('en-IN')}
             </p>
             <p className="text-xs text-slate-400">per person</p>
           </div>
           <a
-            href={`https://wa.me/${trip.whatsapp}?text=${waText}`}
+            href={waLink}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center justify-center gap-2 flex-1 bg-[#25D366] text-white py-3.5 rounded-2xl font-bold text-base"
+            className="flex items-center justify-center gap-2 flex-1 bg-[#25D366] text-white py-3.5 rounded-2xl font-bold text-base active:scale-95 transition-transform"
           >
             <WhatsAppIcon className="w-5 h-5" />
-            WhatsApp Us
+            WhatsApp
           </a>
           <a
             href={trip.bookingLink}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center justify-center flex-1 bg-emerald-600 text-white py-3.5 rounded-2xl font-bold text-base"
+            className="flex items-center justify-center flex-1 bg-emerald-600 hover:bg-emerald-700 text-white py-3.5 rounded-2xl font-bold text-base active:scale-95 transition-all"
           >
             Book Now
           </a>

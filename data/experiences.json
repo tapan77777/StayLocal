@@ -1,0 +1,170 @@
+[
+  {
+    "slug": "jibhi",
+    "place": "Jibhi, Himachal Pradesh",
+    "title": "How Jibhi Taught Me to Stop Planning",
+    "subtitle": "Four days in the Tirthan Valley with no itinerary, no expectations — and everything I needed.",
+    "shortDesc": "A raw Himachali valley where the apples are sweet, the people warmer, and time moves differently.",
+    "tags": ["Mountains", "Homestay", "Offbeat", "4 Days"],
+    "image": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80",
+    "heroImage": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1920&q=80",
+    "founderNote": "I went to Jibhi thinking I'd lead the group. By day two, the valley was leading all of us. That shift — from tour guide to fellow traveler — is what StayLocal is built on.",
+    "story": [
+      "I first stumbled into Jibhi by accident. A detour from Manali that turned into a four-day stay, then a week, then a standing promise to myself that I'd come back every year.",
+      "The Tirthan River runs cold and clear behind the village. In the mornings, the mist sits so low in the valley that you can't see the pine ridges above. It feels like the whole world shrinks down to a single lane road, a wooden bridge, and the sound of water.",
+      "What I love most isn't the landscape — it's the pace. No one in Jibhi is in a hurry. The dhabas open when the owner wakes up. The trails are unmarked. The apples hang heavy and unharvested on trees by the road, and you can just pick one. That kind of abundance, that unhurried generosity — I've never found it anywhere else in India."
+    ],
+    "days": [
+      {
+        "day": 1,
+        "title": "Arrive, drop your bags, breathe",
+        "content": "The drive up from Aut takes 2 hours on a road that curves along the Tirthan. We arrived at dusk. The homestay host, Prakash, had a fire going and rajma chawal ready. Nobody needed to say anything about plans."
+      },
+      {
+        "day": 2,
+        "title": "Chehni Kothi and a walk that changed everything",
+        "content": "A 3-km walk through deodar forests to a 1,500-year-old tower. The trail is mostly unmarked — we got slightly lost twice. That was the best part. Lunch was carried in tiffins. Tea happened at a shepherd's hut."
+      },
+      {
+        "day": 3,
+        "title": "Free day in the valley",
+        "content": "No plan. Some people swam in the river. A few of us walked 20 minutes to a hidden waterfall. Two people spent the entire day reading on the balcony. Everyone called it their favourite day."
+      },
+      {
+        "day": 4,
+        "title": "Jalori Pass and the long goodbye",
+        "content": "An early morning drive to Jalori Pass (10,800 ft) for sunrise. The whole valley visible below us, still in shadow. We didn't want to leave. We stayed 40 minutes longer than we should have."
+      }
+    ],
+    "tips": [
+      "Go between April–June or September–November — avoid monsoon season for road safety.",
+      "Carry cash — ATMs in Jibhi are unreliable. Aut is your last reliable ATM stop.",
+      "The Tirthan Valley is a Great Himalayan National Park buffer zone — no plastic, no noise, no off-roading.",
+      "Cold nights even in May. Pack a proper fleece layer.",
+      "Ask your host to cook the local trout if it's available — it's unforgettable."
+    ],
+    "budget": {
+      "total": "₹8,500",
+      "note": "Per person for 4 nights, all-inclusive from Delhi (train + local transport + accommodation + meals).",
+      "items": [
+        { "label": "Train (Delhi → Aut, sleeper class)", "amount": "₹650" },
+        { "label": "Local transport (Aut → Jibhi → Jalori + return)", "amount": "₹900" },
+        { "label": "Homestay (4 nights with meals)", "amount": "₹4,800" },
+        { "label": "Snacks, local tea, personal spends", "amount": "₹800" },
+        { "label": "Return train", "amount": "₹650" },
+        { "label": "Miscellaneous / buffer", "amount": "₹700" }
+      ]
+    },
+    "relatedTripSlug": "jibhi"
+  },
+  {
+    "slug": "simlipal",
+    "place": "Simlipal, Odisha",
+    "title": "The Forest That Doesn't Need You to Be Brave",
+    "subtitle": "India's second-largest tiger reserve — and the most undervisited national park I've ever loved.",
+    "shortDesc": "Sal forests, wild elephants, and the sound of nothing. Simlipal is the trip that resets everything.",
+    "tags": ["Jungle", "Wildlife", "Offbeat", "3 Nights"],
+    "image": "https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?w=800&q=80",
+    "heroImage": "https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?w=1920&q=80",
+    "founderNote": "Most people plan a wildlife trip hoping to see a tiger. In Simlipal I saw a mother elephant and her calf crossing a road at dusk, and I completely forgot tigers existed. That's what this forest does to you.",
+    "story": [
+      "Simlipal is one of those places that doesn't photograph well. The jungle is too dense, the light too patchy, the mornings too misty. You can't capture it, so you just have to be there.",
+      "I'd been to Corbett, Ranthambore, Bandhavgarh — the famous parks. Simlipal is different. No tourist infrastructure, no tiger show, no jeep traffic jams. Just you and a forest ranger on a trail where elephants walked last night.",
+      "The sal trees here are enormous — some older than 200 years. The air smells of damp earth and something older than anything I can name. I've taken three groups here. Everyone comes back changed. None of them can explain exactly why."
+    ],
+    "days": [
+      {
+        "day": 1,
+        "title": "Arrive at Baripada, enter the forest",
+        "content": "We reach Baripada by train and drive the 60km to the Pithabata gate. Check into the forest rest house — basic, beautiful, surrounded by sal. Evening walk with the ranger to a waterhole. We heard elephants before we saw them."
+      },
+      {
+        "day": 2,
+        "title": "Morning game drive, afternoon forest walk",
+        "content": "A 4am start for the morning drive — this is when you see the most. Herds of gaur (Indian bison), spotted deer, and if you're quiet and lucky, a glimpse of stripes between the trees. Afternoon is a slow forest walk to the Bareipani falls."
+      },
+      {
+        "day": 3,
+        "title": "Joranda Falls and the deep forest trail",
+        "content": "The 150-metre Joranda waterfall is one of India's tallest, and almost no one knows it exists. The trail through the forest to reach it is the most beautiful three hours I've spent anywhere in India."
+      },
+      {
+        "day": 4,
+        "title": "Leave slower than you arrived",
+        "content": "No early starts on the last day. Breakfast on the veranda. A final walk. The drive back to Baripada always feels like re-entering a different world. It takes a day or two before normal life feels normal again."
+      }
+    ],
+    "tips": [
+      "Simlipal is open November to June. The best wildlife sightings are February–April.",
+      "Entry permits are required — we handle all bookings as part of the trip.",
+      "No mobile network inside the reserve. Disconnect completely.",
+      "Wear muted colours (olive, brown, khaki) — bright clothes disturb wildlife.",
+      "Leeches in the wet season — tuck your socks over your trousers if visiting just after monsoon."
+    ],
+    "budget": {
+      "total": "₹7,200",
+      "note": "Per person for 3 nights, all-inclusive from Kolkata (train + forest permits + accommodation + meals).",
+      "items": [
+        { "label": "Train (Kolkata → Baripada)", "amount": "₹480" },
+        { "label": "Local transport (Baripada → forest + drives)", "amount": "₹1,200" },
+        { "label": "Forest rest house (3 nights)", "amount": "₹2,700" },
+        { "label": "Entry permits + ranger fees", "amount": "₹800" },
+        { "label": "All meals (forest canteen + packed lunches)", "amount": "₹1,200" },
+        { "label": "Return train + buffer", "amount": "₹820" }
+      ]
+    },
+    "relatedTripSlug": "simlipal"
+  },
+  {
+    "slug": "netarhat",
+    "place": "Netarhat, Jharkhand",
+    "title": "India's Best Sunrise That No One Is Watching",
+    "subtitle": "The Queen of Chota Nagpur — and maybe the most peaceful plateau in the country.",
+    "shortDesc": "Pine forests, red laterite soil, and a sunrise so vivid it looks like someone spilled paint across the sky.",
+    "tags": ["Plateau", "Sunrise", "Quiet", "2 Nights"],
+    "image": "https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?w=800&q=80",
+    "heroImage": "https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?w=1920&q=80",
+    "founderNote": "I've watched the Netarhat sunrise seven times. The first time I gasped. The seventh time I cried. It never stops being extraordinary. I bring people here because words genuinely cannot prepare you for it.",
+    "story": [
+      "Netarhat sits at 3,700 feet above the Chota Nagpur plateau, three hours from Ranchi through forests that thin out into tall pines as you climb. The air changes somewhere around the second hour. You can feel when you've arrived even before you see anything.",
+      "The plateau is named after the Neta flowers that carpet it in spring. The British built a school here in 1924 — Netarhat Residential School — which still sits under the pines, giving the whole place an unlikely feeling of quiet academic calm.",
+      "The sunrise point is a 20-minute walk from the main road. You get there before dawn and wait. The Jharkhand sky does something extraordinary in those minutes before light — it cycles through violet, then blood orange, then gold, and when the sun finally clears the horizon over the plains below, it looks like the whole valley is on fire."
+    ],
+    "days": [
+      {
+        "day": 1,
+        "title": "Reach Ranchi, drive up at dusk",
+        "content": "The 3-hour drive from Ranchi to Netarhat is best done in the evening so you arrive in the dark and experience the reveal in the morning. Dinner at the rest house — simple Jharkhand food. Sleep early."
+      },
+      {
+        "day": 2,
+        "title": "The sunrise. Everything else is secondary.",
+        "content": "5am start. Walk to the sunrise point. Watch in silence. Breakfast after. The rest of the day is forest walks, the old British-era bungalows, the Magnolia Point viewpoint, and a long lunch. Afternoon nap is non-negotiable."
+      },
+      {
+        "day": 3,
+        "title": "Lower Ghaghari Falls and the slow drive home",
+        "content": "An hour's drive to Lower Ghaghari falls — 320 metres, a cascade through dense forest. Swim if you're brave enough. The water is cold even in summer. Drive back to Ranchi through a different route. Stop when something looks interesting."
+      }
+    ],
+    "tips": [
+      "October–March is the best time. Avoid summer (April–June) — can get hot and hazy.",
+      "The sunrise point gets cool quickly — carry a shawl or light jacket even in November.",
+      "Netarhat has no restaurants worth mentioning — the rest house meals are genuinely the best food option.",
+      "The road from Latehar to Netarhat has patches of poor connectivity — download offline maps.",
+      "Combine with Betla National Park (1.5 hrs away) if you have an extra day."
+    ],
+    "budget": {
+      "total": "₹5,800",
+      "note": "Per person for 2 nights, all-inclusive from Ranchi (local transport + accommodation + meals).",
+      "items": [
+        { "label": "Ranchi → Netarhat taxi (shared, one way)", "amount": "₹600" },
+        { "label": "Rest house (2 nights with meals)", "amount": "₹2,400" },
+        { "label": "Local transport (falls, viewpoints, return)", "amount": "₹1,400" },
+        { "label": "Meals outside + tea + snacks", "amount": "₹600" },
+        { "label": "Miscellaneous / buffer", "amount": "₹800" }
+      ]
+    },
+    "relatedTripSlug": "netarhat"
+  }
+]

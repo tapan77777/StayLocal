@@ -1,6 +1,6 @@
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
-import { trips } from '@/data/trips';
+import trips from '@/data/trips.json';
 import TripDetail from '@/components/TripDetail';
 
 type Params = Promise<{ slug: string }>;

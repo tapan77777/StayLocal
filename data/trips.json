@@ -1,0 +1,386 @@
+[
+  {
+    "slug": "jibhi",
+    "title": "Jibhi Valley Escape",
+    "tagline": "Pine forests, mountain silence, and a rhythm you forgot exists.",
+    "location": "Himachal Pradesh",
+    "route": "Delhi → Jibhi → Rishikesh",
+    "duration": "9 Days / 8 Nights",
+    "shortDuration": "9D · 8N",
+    "price": 15000,
+    "originalPrice": 19000,
+    "groupSize": "Max 8",
+    "difficulty": "Easy",
+    "category": "Mountains",
+    "image": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80",
+    "heroImage": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1920&q=80",
+    "gallery": [
+      "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80",
+      "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=800&q=80",
+      "https://images.unsplash.com/photo-1454496522488-7a8e488e8606?w=800&q=80",
+      "https://images.unsplash.com/photo-1540390769625-2fc3f8b1d50c?w=800&q=80"
+    ],
+    "highlights": [
+      "Jalori Pass Trek at 10,800 ft",
+      "Local Homestay Stays",
+      "River Rafting in Rishikesh",
+      "Village Forest Walks"
+    ],
+    "itinerary": [
+      {
+        "day": 1,
+        "title": "Departure Night",
+        "location": "Delhi → Aut",
+        "activities": [
+          "Board Volvo bus from Delhi at 9:00 PM",
+          "Overnight journey towards the mountains (~10 hours)",
+          "Rest and settle into the journey rhythm"
+        ]
+      },
+      {
+        "day": 2,
+        "title": "Arrival & Local Route",
+        "location": "Aut → Jibhi",
+        "activities": [
+          "Morning arrival at Aut",
+          "Travel from Aut to Jibhi by local bus (34 km, ~2 hours)",
+          "Reach homestay by afternoon and have lunch",
+          "Village walk, rest, and quiet evening"
+        ]
+      },
+      {
+        "day": 3,
+        "title": "High Pass & Fort Walk",
+        "location": "Jibhi → Jalori Pass",
+        "activities": [
+          "Breakfast at the homestay",
+          "Drive to Jalori Pass by cab (~1 hour)",
+          "Walk and explore Raghupur Fort area",
+          "Evening return to Jibhi"
+        ]
+      },
+      {
+        "day": 4,
+        "title": "Slow Day in the Village",
+        "location": "Jibhi",
+        "activities": [
+          "Late breakfast",
+          "Local exploration and short forest walks",
+          "Free time to rest, read, or simply be"
+        ]
+      },
+      {
+        "day": 5,
+        "title": "Return Journey",
+        "location": "Jibhi → Aut → Delhi",
+        "activities": [
+          "Lunch in Jibhi",
+          "Travel from Jibhi to Aut",
+          "Board night Volvo bus back to Delhi"
+        ]
+      },
+      {
+        "day": 6,
+        "title": "Transit & Reset",
+        "location": "Delhi",
+        "activities": [
+          "Morning arrival in Delhi",
+          "Rest and reset",
+          "Late-night bus departure to Rishikesh (11:00 PM)"
+        ]
+      },
+      {
+        "day": 7,
+        "title": "River Town Arrival",
+        "location": "Rishikesh",
+        "activities": [
+          "Morning arrival in Rishikesh",
+          "Hostel check-in",
+          "Afternoon river rafting",
+          "Relaxed evening"
+        ]
+      },
+      {
+        "day": 8,
+        "title": "Explore at Your Own Pace",
+        "location": "Rishikesh",
+        "activities": [
+          "Explore Rishikesh by scooty",
+          "Cafes, ghats, and local spots",
+          "Late-night roaming"
+        ]
+      },
+      {
+        "day": 9,
+        "title": "Journey Home",
+        "location": "Haridwar → Home",
+        "activities": [
+          "Early morning train from Haridwar (6:30 AM)",
+          "Journey back home"
+        ]
+      }
+    ],
+    "includes": [
+      "Delhi to Delhi transport (Volvo bus)",
+      "All local transfers and cab journeys",
+      "4 nights homestay + hostel accommodation",
+      "All meals — breakfast, lunch, dinner",
+      "Guided walks and local experiences",
+      "River rafting in Rishikesh",
+      "Mountain buffer time (weather/roads)"
+    ],
+    "excludes": [
+      "Personal expenses and shopping",
+      "Travel insurance",
+      "Tips for guides and homestay hosts",
+      "Any meals outside the itinerary"
+    ],
+    "faqs": [
+      {
+        "q": "What fitness level is required?",
+        "a": "Easy to moderate. The Jalori Pass trek is a short walk on a motorable road — no technical climbing. If you can walk 3–4 km on uneven ground, you are good."
+      },
+      {
+        "q": "Is this suitable for solo travelers?",
+        "a": "Yes. Most of our travelers sign up solo and leave as friends. The group is capped at 8 specifically for this reason."
+      },
+      {
+        "q": "What is the cancellation policy?",
+        "a": "The ₹5,000 advance is non-refundable. If you cancel more than 15 days before departure, the remaining balance is fully refunded. Within 15 days, 50% is refunded."
+      },
+      {
+        "q": "What should I pack?",
+        "a": "Warm layers (nights are cold even in spring), good walking shoes, a small daypack, and minimal luggage. We share a detailed packing list on confirmation."
+      }
+    ],
+    "durations": [
+      { "label": "5D / 4N", "popular": false, "price": { "standard": 9500,  "deluxe": 13500 } },
+      { "label": "7D / 6N", "popular": true,  "price": { "standard": 12500, "deluxe": 16500 } },
+      { "label": "9D / 8N", "popular": false, "price": { "standard": 15000, "deluxe": 20000 } }
+    ],
+    "bookingLink": "https://forms.gle/GJuAs71C2dujDDs3A",
+    "whatsapp": "919178628894",
+    "advance": 5000,
+    "nextDeparture": "March 3, 2026",
+    "spotsLeft": 3,
+    "totalSpots": 8
+  },
+  {
+    "slug": "simlipal",
+    "title": "Simlipal Wild Stay",
+    "tagline": "Into the oldest forest in India. No rush, no schedule — just wild.",
+    "location": "Odisha",
+    "route": "Bhubaneswar → Baripada → Simlipal",
+    "duration": "5 Days / 3 Nights",
+    "shortDuration": "4D · 3N",
+    "price": 7500,
+    "originalPrice": 12000,
+    "groupSize": "Max 8",
+    "difficulty": "Easy",
+    "category": "Wildlife",
+    "image": "https://images.unsplash.com/photo-1448375240586-882707db888b?w=800&q=80",
+    "heroImage": "https://images.unsplash.com/photo-1448375240586-882707db888b?w=1920&q=80",
+    "gallery": [
+      "https://images.unsplash.com/photo-1448375240586-882707db888b?w=800&q=80",
+      "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=800&q=80",
+      "https://images.unsplash.com/photo-1504173010664-32509107de78?w=800&q=80",
+      "https://images.unsplash.com/photo-1470770903676-69b98201ea1c?w=800&q=80"
+    ],
+    "highlights": [
+      "Elephant Corridor Safari",
+      "Barehipani Waterfall (399 m)",
+      "Tribal Village Visit",
+      "Night Stay in Forest Zone"
+    ],
+    "itinerary": [
+      {
+        "day": 1,
+        "title": "Arrival at Baripada",
+        "location": "Bhubaneswar → Baripada",
+        "activities": [
+          "Travel from Bhubaneswar (3 hours by road)",
+          "Check-in and rest at guesthouse",
+          "Evening briefing and local walk"
+        ]
+      },
+      {
+        "day": 2,
+        "title": "Into Simlipal Core",
+        "location": "Simlipal National Park",
+        "activities": [
+          "Early morning jeep safari (elephant and deer sightings)",
+          "Barehipani Waterfall visit",
+          "Tribal village interaction and lunch",
+          "Overnight stay in forest rest house"
+        ]
+      },
+      {
+        "day": 3,
+        "title": "Deep Forest Day",
+        "location": "Simlipal Core Zone",
+        "activities": [
+          "Dawn bird walk with naturalist",
+          "Second safari — gaur and leopard territory",
+          "Free afternoon to explore on foot",
+          "Campfire evening under the forest"
+        ]
+      },
+      {
+        "day": 4,
+        "title": "Return",
+        "location": "Baripada → Bhubaneswar",
+        "activities": [
+          "Early departure from forest zone",
+          "Breakfast on the way",
+          "Reach Bhubaneswar by noon — drop at station/airport"
+        ]
+      }
+    ],
+    "includes": [
+      "All transport from Bhubaneswar and back",
+      "Forest zone accommodation (3 nights)",
+      "All meals during the trip",
+      "Safari jeep and forest entry permits",
+      "Local naturalist guide throughout"
+    ],
+    "excludes": [
+      "Train or flight to Bhubaneswar",
+      "Personal expenses",
+      "Travel insurance",
+      "Tips for naturalist and drivers"
+    ],
+    "faqs": [
+      {
+        "q": "Is wildlife sighting guaranteed?",
+        "a": "Simlipal hosts elephants, leopards, gaurs, and 300+ bird species. Sightings depend on season and luck — we go deep enough to maximize chances."
+      },
+      {
+        "q": "How do we stay in the forest?",
+        "a": "The forest department maintains basic rest houses inside the core zone. Think clean, bare, and deeply atmospheric — not a resort."
+      },
+      {
+        "q": "What is the best time to visit?",
+        "a": "November to March is ideal. The park is closed during monsoon (June–September)."
+      },
+      {
+        "q": "What is the cancellation policy?",
+        "a": "The ₹3,000 advance is non-refundable. Full refund for cancellations 15+ days before departure, 50% within 15 days."
+      }
+    ],
+    "durations": [
+      { "label": "2D / 1N", "popular": false, "price": { "standard": 4500, "deluxe": 6500  } },
+      { "label": "3D / 2N", "popular": true,  "price": { "standard": 6500, "deluxe": 9000  } },
+      { "label": "5D / 3N", "popular": false, "price": { "standard": 7500, "deluxe": 11000 } }
+    ],
+    "bookingLink": "https://forms.gle/GJuAs71C2dujDDs3A",
+    "whatsapp": "919178628894",
+    "advance": 3000,
+    "nextDeparture": "April 10, 2026",
+    "spotsLeft": 5,
+    "totalSpots": 8
+  },
+  {
+    "slug": "netarhat",
+    "title": "Netarhat Plateau Escape",
+    "tagline": "The Queen of Chotanagpur. A sunrise over forests you will carry home.",
+    "location": "Jharkhand",
+    "route": "Ranchi → Netarhat Plateau",
+    "duration": "3 Days / 2 Nights",
+    "shortDuration": "3D · 2N",
+    "price": 6500,
+    "originalPrice": 8000,
+    "groupSize": "Max 10",
+    "difficulty": "Easy",
+    "category": "Hills",
+    "image": "https://images.unsplash.com/photo-1518623489648-a173ef7824f3?w=800&q=80",
+    "heroImage": "https://images.unsplash.com/photo-1518623489648-a173ef7824f3?w=1920&q=80",
+    "gallery": [
+      "https://images.unsplash.com/photo-1518623489648-a173ef7824f3?w=800&q=80",
+      "https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?w=800&q=80",
+      "https://images.unsplash.com/photo-1470770903676-69b98201ea1c?w=800&q=80",
+      "https://images.unsplash.com/photo-1483728642387-6c3bdd6c93e5?w=800&q=80"
+    ],
+    "highlights": [
+      "Sunrise at Magnolia Point",
+      "Lodh Falls Hike (Jharkhand's highest)",
+      "Sal & Bamboo Forest Walks",
+      "Local Adivasi Culture"
+    ],
+    "itinerary": [
+      {
+        "day": 1,
+        "title": "Drive to the Plateau",
+        "location": "Ranchi → Netarhat",
+        "activities": [
+          "Depart Ranchi early morning (5-hour scenic drive)",
+          "Settle into guesthouse",
+          "Sunset walk at Upper Ghaghri Falls area",
+          "Bonfire and group introductions"
+        ]
+      },
+      {
+        "day": 2,
+        "title": "Full Day Exploration",
+        "location": "Netarhat",
+        "activities": [
+          "4:30 AM sunrise at Magnolia Point",
+          "Post-sunrise breakfast at the guesthouse",
+          "Lodh Falls hike — tallest waterfall in Jharkhand",
+          "Village walk and local market in the afternoon",
+          "Leisure evening and stargazing"
+        ]
+      },
+      {
+        "day": 3,
+        "title": "Morning Walk & Return",
+        "location": "Netarhat → Ranchi",
+        "activities": [
+          "Early morning forest walk",
+          "Breakfast and check-out",
+          "Return to Ranchi — reach by early afternoon"
+        ]
+      }
+    ],
+    "includes": [
+      "Pickup and drop from Ranchi",
+      "2 nights guesthouse accommodation",
+      "All meals during the trip",
+      "Local guide for all walks and hikes",
+      "Forest entry permits"
+    ],
+    "excludes": [
+      "Travel to or from Ranchi",
+      "Personal expenses",
+      "Travel insurance"
+    ],
+    "faqs": [
+      {
+        "q": "Is Netarhat suitable for families?",
+        "a": "Absolutely. The terrain is gentle, drives are scenic, and the pace is unhurried. Children enjoy it as much as adults."
+      },
+      {
+        "q": "What makes Netarhat special?",
+        "a": "It is one of India's most beautiful and least-known hill stations. No crowds, no commercialism — just forest, sky, and silence."
+      },
+      {
+        "q": "Do we need any special permits?",
+        "a": "No special permits are required for visitors. We handle all forest entry permissions as part of the trip cost."
+      },
+      {
+        "q": "What is the cancellation policy?",
+        "a": "The ₹2,000 advance is non-refundable. Full refund for cancellations 10+ days before departure."
+      }
+    ],
+    "durations": [
+      { "label": "1D",      "popular": false, "price": { "standard": 2500, "deluxe": 3800 } },
+      { "label": "2D / 1N", "popular": true,  "price": { "standard": 4500, "deluxe": 6000 } },
+      { "label": "3D / 2N", "popular": false, "price": { "standard": 6500, "deluxe": 8500 } }
+    ],
+    "bookingLink": "https://forms.gle/GJuAs71C2dujDDs3A",
+    "whatsapp": "919178628894",
+    "advance": 2000,
+    "nextDeparture": "April 18, 2026",
+    "spotsLeft": 7,
+    "totalSpots": 10
+  }
+]
