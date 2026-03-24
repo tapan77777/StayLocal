@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { Suspense } from 'react';
 import experiences from '@/data/experiences.json';
 import ExperienceFilter from '@/components/ExperienceFilter';
 
@@ -28,7 +29,9 @@ export default function ExperiencePage() {
       </div>
 
       {/* Filter + cards (client component) */}
-      <ExperienceFilter experiences={experiences} />
+      <Suspense fallback={null}>
+        <ExperienceFilter experiences={experiences} />
+      </Suspense>
     </main>
   );
 }

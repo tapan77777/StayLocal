@@ -1,11 +1,11 @@
 'use client';
+import experiences from '@/data/experiences.json';
+import trips from '@/data/trips.json';
 import { ArrowRight, ChevronDown, Menu, XIcon } from 'lucide-react';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import ExperienceCard from './ExperienceCard';
 import TripCard from './TripCard';
-import experiences from '@/data/experiences.json';
-import trips from '@/data/trips.json';
 
 /* ─── WhatsApp icon (reused in bottom bar) ──────────────────────────────── */
 const WaIcon = ({ className }) => (
@@ -385,21 +385,36 @@ const StayLocal = () => {
 
             {/* Image — top on mobile, right on desktop */}
             <div className="order-first md:order-last">
-              <div className="relative rounded-3xl overflow-hidden aspect-[4/3]">
-                <img
-                  src="https://images.unsplash.com/photo-1539635278303-d4002c07eae3?w=800&q=80"
-                  alt="Founder traveling"
-                  className="w-full h-full object-cover"
-                  loading="lazy"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
-                {/* Quote overlay */}
-                <div className="absolute bottom-4 left-4 right-4">
-                  <p className="text-white text-sm font-medium italic bg-black/30 backdrop-blur-sm rounded-xl px-4 py-3 leading-relaxed">
-                    &ldquo;I don&apos;t lead tours. I share places I genuinely love.&rdquo;
-                  </p>
+              <Link href="/experience" className="block group">
+                <div className="relative rounded-3xl overflow-hidden aspect-[4/3] cursor-pointer">
+                  <img
+                    src="https://i.pinimg.com/736x/2b/d8/00/2bd8000efe08de79ebade73e154df2f4.jpg"
+                    alt="Founder traveling"
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    loading="lazy"
+                  />
+                  {/* Base gradient */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/10 to-transparent" />
+
+                  {/* Hover overlay */}
+                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300" />
+
+                  {/* Tap-to-explore badge — fades in on hover */}
+                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <span className="flex items-center gap-2 bg-white/90 backdrop-blur-sm text-slate-900 text-sm font-semibold px-5 py-2.5 rounded-full shadow-lg">
+                      <ArrowRight className="w-4 h-4 text-emerald-600" />
+                      Explore real experiences
+                    </span>
+                  </div>
+
+                  {/* Quote overlay */}
+                  <div className="absolute bottom-4 left-4 right-4 transition-opacity duration-300 group-hover:opacity-0">
+                    <p className="text-white text-sm font-medium italic bg-black/30 backdrop-blur-sm rounded-xl px-4 py-3 leading-relaxed">
+                      &ldquo;I don&apos;t lead tours. I share places I genuinely love.&rdquo;
+                    </p>
+                  </div>
                 </div>
-              </div>
+              </Link>
             </div>
 
             {/* Text */}
@@ -407,25 +422,23 @@ const StayLocal = () => {
               <span className="inline-block text-emerald-600 font-semibold text-xs tracking-widest uppercase mb-4">
                 Your Host
               </span>
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif text-slate-900 mb-5 leading-tight">
-                Travel With Me
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif text-slate-900 mb-3 leading-tight">
+                My Travel Experiences I&apos;ve Actually Been
               </h2>
-              <p className="text-slate-600 text-base sm:text-lg leading-relaxed mb-6">
-                I&apos;m not a tour operator. I&apos;m a traveler who found places worth sharing — and
-                decided to bring a few people along. Every trip I run is somewhere I&apos;ve been
-                alone first, somewhere I&apos;d go back to in a heartbeat.
+              <p className="text-emerald-600 font-semibold text-sm mb-5 tracking-wide">
+                Real places. Real costs. No filters.
               </p>
-              <p className="text-slate-500 text-base leading-relaxed mb-8">
-                Read my honest accounts from the field — what the places actually look like,
-                what they cost, and what it feels like to be there.
+              <p className="text-slate-600 text-base sm:text-lg leading-relaxed mb-8">
+                Everything here comes from my own journeys — no guides, no sponsorships, just real experience. first — stayed in,
+                spent money in, and decided was worth coming back to.
               </p>
 
               {/* Stats */}
               <div className="flex gap-8 mb-8">
                 {[
-                  { value: '2+', label: 'Years hosting' },
-                  { value: '3',  label: 'Destinations' },
-                  { value: '50+', label: 'Travelers' },
+                  { value: '2+', label: 'Years of Experience' },
+                  { value: '25+',  label: 'Destinations' },
+                  { value: '50+', label: 'Travel' },
                 ].map(({ value, label }) => (
                   <div key={label}>
                     <p className="text-2xl font-bold text-slate-900 leading-none">{value}</p>
@@ -434,14 +447,32 @@ const StayLocal = () => {
                 ))}
               </div>
 
+              {/* Place preview chips */}
+              <div className="flex flex-wrap gap-2 mb-8">
+                {['Jibhi', 'Simlipal', 'Netarhat', 'Dharamkot'].map((place) => (
+                  <Link
+                    key={place}
+                    href={`/experience?q=${place}`}
+                    className="inline-flex items-center gap-1.5 text-xs font-medium px-3.5 py-1.5
+                               bg-white border border-slate-200 text-slate-600 rounded-full
+                               hover:border-emerald-400 hover:text-emerald-700 hover:bg-emerald-50
+                               transition-all duration-200 shadow-sm"
+                  >
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 flex-shrink-0" />
+                    {place}
+                  </Link>
+                ))}
+              </div>
+
               <Link
                 href="/experience"
-                className="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700
-                           text-white px-6 py-3.5 rounded-xl font-semibold text-sm
-                           transition-colors min-h-[48px]"
+                className="inline-flex items-center gap-2.5 bg-emerald-600 hover:bg-emerald-700
+                           active:scale-95 text-white px-7 py-4 rounded-xl font-semibold text-base
+                           transition-all duration-200 shadow-md shadow-emerald-100 hover:shadow-lg hover:shadow-emerald-100
+                           min-h-[52px]"
               >
-                Explore My Experiences
-                <ArrowRight className="w-4 h-4" />
+                See Real Experiences
+                <ArrowRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-0.5" />
               </Link>
             </div>
           </div>

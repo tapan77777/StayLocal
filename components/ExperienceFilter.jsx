@@ -1,5 +1,6 @@
 'use client';
-import { useMemo, useState } from 'react';
+import { useMemo, useState, useEffect } from 'react';
+import { useSearchParams } from 'next/navigation';
 import { MapPin, Search, X } from 'lucide-react';
 import ExperienceCard from './ExperienceCard';
 import Link from 'next/link';
@@ -78,9 +79,16 @@ const FilterLabel = ({ children }) => (
    Main component
 ═══════════════════════════════════════════════════════════════════════════ */
 export default function ExperienceFilter({ experiences }) {
-  const [search,      setSearch]      = useState('');
+  const searchParams = useSearchParams();
+  const [search,      setSearch]      = useState(() => searchParams.get('q') ?? '');
   const [activeTag,   setActiveTag]   = useState(null);
   const [activeState, setActiveState] = useState(null);
+
+  /* sync if the URL param changes (e.g. clicking a place chip from homepage) */
+  useEffect(() => {
+    const q = searchParams.get('q');
+    if (q) setSearch(q);
+  }, [searchParams]);
 
   const allTags = useMemo(
     () => sortTags(unique(experiences.flatMap((e) => e.tags).filter(Boolean))),
