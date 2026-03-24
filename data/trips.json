@@ -173,8 +173,8 @@
     "route": "Bhubaneswar → Baripada → Simlipal",
     "duration": "5 Days / 3 Nights",
     "shortDuration": "4D · 3N",
-    "price": 7500,
-    "originalPrice": 12000,
+    "price": 3500,
+    "originalPrice": 7200,
     "groupSize": "Max 8",
     "difficulty": "Easy",
     "category": "Wildlife",
@@ -268,9 +268,9 @@
       }
     ],
     "durations": [
-      { "label": "2D / 1N", "popular": false, "price": { "standard": 4500, "deluxe": 6500  } },
-      { "label": "3D / 2N", "popular": true,  "price": { "standard": 6500, "deluxe": 9000  } },
-      { "label": "5D / 3N", "popular": false, "price": { "standard": 7500, "deluxe": 11000 } }
+      { "label": "2D / 1N", "popular": false, "price": { "standard": 3500, "deluxe": 4500  } },
+      { "label": "3D / 2N", "popular": true,  "price": { "standard": 5500, "deluxe": 8000  } },
+      { "label": "5D / 3N", "popular": false, "price": { "standard": 6500, "deluxe": 9500 } }
     ],
     "bookingLink": "https://forms.gle/GJuAs71C2dujDDs3A",
     "whatsapp": "919178628894",
