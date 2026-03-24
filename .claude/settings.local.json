@@ -4,7 +4,8 @@
       "Bash(npx next:*)",
       "Bash(Remove-Item -Force .next/lock -ErrorAction SilentlyContinue)",
       "Bash(Select-String -Pattern \"error|Error|Compiled|Generating|FATAL|Failed\")",
-      "Bash(npm run:*)"
+      "Bash(npm run:*)",
+      "Bash(node:*)"
     ]
   }
 }
