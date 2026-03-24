@@ -1,7 +1,6 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
 import experiences from '@/data/experiences.json';
-import ExperienceCard from '@/components/ExperienceCard';
+import ExperienceFilter from '@/components/ExperienceFilter';
 
 export const metadata: Metadata = {
   title: 'My Experiences | StayLocal',
@@ -28,28 +27,8 @@ export default function ExperiencePage() {
         </div>
       </div>
 
-      {/* Cards grid */}
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 py-12 sm:py-16">
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-7">
-          {experiences.map((exp) => (
-            <ExperienceCard key={exp.slug} experience={exp} />
-          ))}
-        </div>
-
-        {/* Footer nudge */}
-        <div className="mt-14 sm:mt-20 text-center">
-          <p className="text-slate-400 text-sm mb-4">
-            Want to travel to one of these places with a small group?
-          </p>
-          <Link
-            href="/#trips"
-            className="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700
-                       text-white px-6 py-3.5 rounded-xl font-semibold text-sm transition-colors min-h-[48px]"
-          >
-            See Available Trips
-          </Link>
-        </div>
-      </div>
+      {/* Filter + cards (client component) */}
+      <ExperienceFilter experiences={experiences} />
     </main>
   );
 }

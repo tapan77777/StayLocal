@@ -1,62 +1,81 @@
 [
-  {
-    "slug": "jibhi",
-    "place": "Jibhi, Himachal Pradesh",
-    "title": "How Jibhi Taught Me to Stop Planning",
-    "subtitle": "Four days in the Tirthan Valley with no itinerary, no expectations — and everything I needed.",
-    "shortDesc": "A raw Himachali valley where the apples are sweet, the people warmer, and time moves differently.",
-    "tags": ["Mountains", "Homestay", "Offbeat", "4 Days"],
-    "image": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80",
-    "heroImage": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1920&q=80",
-    "founderNote": "I went to Jibhi thinking I'd lead the group. By day two, the valley was leading all of us. That shift — from tour guide to fellow traveler — is what StayLocal is built on.",
-    "story": [
-      "I first stumbled into Jibhi by accident. A detour from Manali that turned into a four-day stay, then a week, then a standing promise to myself that I'd come back every year.",
-      "The Tirthan River runs cold and clear behind the village. In the mornings, the mist sits so low in the valley that you can't see the pine ridges above. It feels like the whole world shrinks down to a single lane road, a wooden bridge, and the sound of water.",
-      "What I love most isn't the landscape — it's the pace. No one in Jibhi is in a hurry. The dhabas open when the owner wakes up. The trails are unmarked. The apples hang heavy and unharvested on trees by the road, and you can just pick one. That kind of abundance, that unhurried generosity — I've never found it anywhere else in India."
-    ],
-    "days": [
-      {
-        "day": 1,
-        "title": "Arrive, drop your bags, breathe",
-        "content": "The drive up from Aut takes 2 hours on a road that curves along the Tirthan. We arrived at dusk. The homestay host, Prakash, had a fire going and rajma chawal ready. Nobody needed to say anything about plans."
-      },
-      {
-        "day": 2,
-        "title": "Chehni Kothi and a walk that changed everything",
-        "content": "A 3-km walk through deodar forests to a 1,500-year-old tower. The trail is mostly unmarked — we got slightly lost twice. That was the best part. Lunch was carried in tiffins. Tea happened at a shepherd's hut."
-      },
-      {
-        "day": 3,
-        "title": "Free day in the valley",
-        "content": "No plan. Some people swam in the river. A few of us walked 20 minutes to a hidden waterfall. Two people spent the entire day reading on the balcony. Everyone called it their favourite day."
-      },
-      {
-        "day": 4,
-        "title": "Jalori Pass and the long goodbye",
-        "content": "An early morning drive to Jalori Pass (10,800 ft) for sunrise. The whole valley visible below us, still in shadow. We didn't want to leave. We stayed 40 minutes longer than we should have."
-      }
-    ],
-    "tips": [
-      "Go between April–June or September–November — avoid monsoon season for road safety.",
-      "Carry cash — ATMs in Jibhi are unreliable. Aut is your last reliable ATM stop.",
-      "The Tirthan Valley is a Great Himalayan National Park buffer zone — no plastic, no noise, no off-roading.",
-      "Cold nights even in May. Pack a proper fleece layer.",
-      "Ask your host to cook the local trout if it's available — it's unforgettable."
-    ],
-    "budget": {
-      "total": "₹8,500",
-      "note": "Per person for 4 nights, all-inclusive from Delhi (train + local transport + accommodation + meals).",
-      "items": [
-        { "label": "Train (Delhi → Aut, sleeper class)", "amount": "₹650" },
-        { "label": "Local transport (Aut → Jibhi → Jalori + return)", "amount": "₹900" },
-        { "label": "Homestay (4 nights with meals)", "amount": "₹4,800" },
-        { "label": "Snacks, local tea, personal spends", "amount": "₹800" },
-        { "label": "Return train", "amount": "₹650" },
-        { "label": "Miscellaneous / buffer", "amount": "₹700" }
-      ]
+ {
+  "slug": "jibhi-shoja",
+  "place": "Jibhi / Shoja, Himachal Pradesh",
+  "title": "The Place That Made Me Want to Build Something Here",
+  "subtitle": "Some places you visit once. Some places quietly become part of your future.",
+  "shortDesc": "A peaceful valley where locals feel like family and life moves slower than anywhere else.",
+  "tags": ["Mountains", "Homestay", "Offbeat", "Slow Travel"],
+  "image": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80",
+  "heroImage": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1920&q=80",
+
+  "founderNote": "I didn’t just travel here — I connected with this place. The people, the pace, the simplicity… it made me think that one day, I want to build a small homestay here and be part of this life.",
+
+  "story": [
+    "Jibhi wasn’t just another trip for me. It felt different from the moment I arrived — not because of the views, but because of the people.",
+    "The locals here are some of the sweetest I’ve met. No rush, no attitude, just simple conversations and genuine warmth.",
+    "I stayed between Jibhi and Shoja, exploring both sides. Jibhi is calm, but Shoja feels even deeper and untouched.",
+    "Most days had no plan — just walking, sitting near the river, or talking to locals. Those simple days felt the most complete.",
+    "At one point, I realized — this isn’t just a place I want to visit again. It’s a place I want to build something in."
+  ],
+
+  "days": [
+    {
+      "day": 0,
+      "title": "Delhi → Aut → Jibhi",
+      "content": "Overnight bus from Delhi to Aut. From Aut, took a local cab/shared vehicle to Jibhi (1.5–2 hrs). Reached by afternoon, checked into homestay, and spent evening near the river."
     },
-    "relatedTripSlug": "jibhi"
+    {
+      "day": 1,
+      "title": "Explore Jibhi & local cafes",
+      "content": "Slow morning. Walked around Jibhi village, visited small cafés, explored wooden bridges and nearby forest trails. No fixed plan — just exploring freely."
+    },
+    {
+      "day": 2,
+      "title": "Shoja & Jalori Pass",
+      "content": "Took a ride to Shoja (30–40 mins). Continued to Jalori Pass (10,800 ft). Cold, windy, and peaceful. Spent time there and returned by evening."
+    },
+    
+    {
+      "day": 3,
+      "title": "Tirthan Valley exploration",
+      "content": "Visited Tirthan Valley side — riverside walks, small villages, and peaceful spots. Less touristy, more raw nature."
+    },
+    {
+      "day": 4,
+      "title": "Return — Jibhi → Aut → Delhi",
+      "content": "Left early morning from Jibhi to Aut. Boarded bus/train back to Delhi. Long journey, but didn’t feel like leaving."
+    }
+  ],
+
+  "tips": [
+    "Talk to locals — they are genuinely helpful and kind.",
+    "Stay in homestays for better experience than hotels.",
+    "Carry cash — ATMs are unreliable in Jibhi.",
+    "Start Jalori hikes early for better views and less crowd.",
+    "Evenings get cold even in summer — carry warm clothes.",
+    "Avoid monsoon season due to landslides."
+  ],
+
+  "budget": {
+    "total": "₹13,000",
+    "note": "Per person for 3–4 days (Delhi to Jibhi round trip, stay, food, and local travel).",
+    "items": [
+      { "label": "Bus (Delhi → Aut → Delhi)", "amount": "₹2,500" },
+      { "label": "Local transport (Aut ↔ Jibhi ↔ Shoja ↔ Jalori)", "amount": "₹2,800" },
+      { "label": "Homestay ", "amount": "₹3,245" },
+      { "label": "Food (local + cafés)", "amount": "₹2,700" },
+      { "label": "Trek/local expenses", "amount": "₹395" },
+      { "label": "Miscellaneous / buffer", "amount": "₹1300" }
+    ]
   },
+
+  "relatedTripSlug": "jibhi",
+
+  "duration": "23 Days",
+  "avgPerDay": "₹900–₹1100",
+  "includes": "Stay, food, local travel, basic expenses"
+},
   {
     "slug": "simlipal",
     "place": "Simlipal, Odisha",
@@ -113,6 +132,9 @@
         { "label": "Return train + buffer", "amount": "₹820" }
       ]
     },
+    "duration": "4 Days / 3 Nights",
+    "avgPerDay": "₹1,700–₹2,000",
+    "includes": "Stay · Food · Transport · Permits",
     "relatedTripSlug": "simlipal"
   },
   {
@@ -165,6 +187,549 @@
         { "label": "Miscellaneous / buffer", "amount": "₹800" }
       ]
     },
+    "duration": "3 Days / 2 Nights",
+    "avgPerDay": "₹1,800–₹2,000",
+    "includes": "Stay · Food · Transport",
     "relatedTripSlug": "netarhat"
-  }
+  },
+  {
+  "slug": "dharamkot",
+  "place": "Dharamkot / McLeodganj, Himachal Pradesh",
+  "title": "The Place Where I Forgot About Time",
+  "subtitle": "Days that started with mountain views and ended in quiet cafés — no rush, no plans, just living slowly.",
+  "shortDesc": "A peaceful hill escape above McLeodganj where cafés, trails, and silence come together.",
+  "tags": ["Mountains", "Cafes", "Solo Travel", "5 Days"],
+  "image": "https://media.gettyimages.com/id/2222573697/photo/monk-walking-past-religious-memorial-plaques-mcleod-ganj-dharamshala-himachal-pradesh-india.jpg?s=612x612&w=0&k=20&c=idT4vfVuh9Ps4yrgqJ4e7cNb8hHqSN_QSNnDUDUzVcA=",
+  "heroImage": "https://media.gettyimages.com/id/2222573697/photo/monk-walking-past-religious-memorial-plaques-mcleod-ganj-dharamshala-himachal-pradesh-india.jpg?s=612x612&w=0&k=20&c=idT4vfVuh9Ps4yrgqJ4e7cNb8hHqSN_QSNnDUDUzVcA=",
+  "founderNote": "I came here thinking I'd explore places. Instead, I ended up exploring a slower version of myself. Dharamkot doesn’t give you a checklist — it gives you space.",
+  "story": [
+    "I reached McLeodganj expecting another busy hill station. Cafes, crowds, traffic — the usual. But someone told me to go 15 minutes uphill to Dharamkot. That decision changed the entire trip.",
+    "Dharamkot feels different. The noise drops, the air feels lighter, and suddenly you're not in a hurry anymore. I stayed in a small homestay overlooking the valley — nothing fancy, just clean rooms and a balcony that became my favorite place.",
+    "Most days had no plan. I’d wake up late, walk to a café, sit for hours with coffee, and just watch people come and go. Some were working, some were traveling, some just existed there. It didn’t feel like tourism — it felt like a pause.",
+    "One day I hiked to Triund. The trail wasn’t too hard, but the view at the top — snow peaks in front, clouds below — that stays with you. But honestly, the best moments weren’t the views. They were the quiet, in-between moments."
+  ],
+  "days": [
+    {
+      "day": 1,
+      "title": "Arrive and move above the crowd",
+      "content": "Reached McLeodganj by afternoon — crowded, noisy. Took a short cab ride up to Dharamkot. The difference was immediate. Checked into a small homestay, had simple dinner, and just sat outside doing nothing."
+    },
+    {
+      "day": 2,
+      "title": "Cafés, slow walks, no agenda",
+      "content": "Started late. Walked around Dharamkot, tried 2–3 cafés. No rush, no fixed plan. Just sitting, eating, and observing. Evening was cold, spent time with other travelers sharing stories."
+    },
+    {
+      "day": 3,
+      "title": "Triund trek",
+      "content": "Started early for Triund. The hike is steady but manageable. Reached the top in 3–4 hours. Sat there for a long time — no phone network, just mountains. Came back by evening, tired but clear-headed."
+    },
+    {
+      "day": 4,
+      "title": "Hidden trails and waterfall",
+      "content": "Explored random trails around Bhagsu. Found a small waterfall spot — not crowded. Spent time there, no hurry to return. Evening café again, same slow rhythm."
+    },
+    {
+      "day": 5,
+      "title": "Leave, but not really",
+      "content": "Packed slowly. Didn’t feel like leaving. Dharamkot has a way of making you want to stay longer. Took a cab back down, but mentally I was still up there."
+    }
+  ],
+  "tips": [
+    "Stay in Dharamkot instead of McLeodganj for a peaceful experience.",
+    "Carry a light jacket — evenings get cold even in summer.",
+    "Network is weak in some areas (Jio works better than Airtel).",
+    "Start Triund trek early to avoid crowd and heat.",
+    "Cash is useful — many small cafés don’t accept cards."
+  ],
+  "budget": {
+    "total": "₹7,600",
+    "note": "Per person for 5 days (budget travel with homestay, food, and local transport).",
+    "items": [
+      { "label": "Bus (Delhi → Dharamshala)", "amount": "₹1300" },
+      { "label": "Local cab (Dharamshala → Dharamkot)", "amount": "₹600" },
+      { "label": "Homestay (4 nights)", "amount": "₹2,800" },
+      { "label": "Food (cafés + local meals)", "amount": "₹,800" },
+      { "label": "Triund trek (self)", "amount": "₹0" },
+      { "label": "Miscellaneous", "amount": "₹1100" }
+    ]
+  },
+  "duration": "9 days",
+  "avgPerDay": "₹500–₹750",
+  "includes": "Stay · Food · Local trips",
+  "relatedTripSlug": "dharamkot"
+},
+
+{
+  "slug": "darjeeling-lamahatta",
+  "place": "Darjeeling / Lamahatta, West Bengal",
+  "title": "A Place I Keep Coming Back To",
+  "subtitle": "Some trips end. Some places stay with you — and you return without thinking twice.",
+  "shortDesc": "A mix of lively Darjeeling and peaceful Lamahatta — experienced over multiple visits.",
+  "tags": ["Mountains", "Tea Gardens", "Short Trip", "Repeat Visits"],
+  "image": "https://media.gettyimages.com/id/1396314780/photo/view-of-darjeeling-from-ghoom-with-heritage-toy-train.jpg?s=612x612&w=0&k=20&c=nQsaq9WiIMXILVCanxNNVxPUYdlfdD4P0xpQS5ixPzg=",
+  "heroImage": "https://media.gettyimages.com/id/1396314780/photo/view-of-darjeeling-from-ghoom-with-heritage-toy-train.jpg?s=612x612&w=0&k=20&c=nQsaq9WiIMXILVCanxNNVxPUYdlfdD4P0xpQS5ixPzg=",
+
+  "founderNote": "I’ve been here 4–5 times — and every time feels slightly different. Darjeeling is familiar, but Lamahatta is where I go when I want silence.",
+
+  "story": [
+    "Darjeeling is one of those places that never feels new — yet never feels boring. I’ve been here 4–5 times, and every visit has been different.",
+    "The first time, I did all the usual things — Mall Road, cafés, viewpoints. But over time, I started slowing down, exploring less crowded corners.",
+    "That’s how I found Lamahatta. Just 40–45 minutes away, but completely different. No crowd, just pine trees, prayer flags, and silence.",
+    "Now whenever I come here, I split my time — a little bit of Darjeeling’s energy, and a little bit of Lamahatta’s calm.",
+    "It’s not about ticking places anymore — it’s about how the place makes you feel. And this one keeps pulling me back."
+  ],
+
+  "days": [
+    {
+      "day": 1,
+      "title": "Kolkata → Siliguri → Darjeeling",
+      "content": "Overnight train/bus from Kolkata to Siliguri (₹900 approx). From Siliguri, took NBSTC local bus to Darjeeling (₹105). Reached by afternoon. Evening walk at Mall Road."
+    },
+    {
+      "day": 2,
+      "title": "Darjeeling local exploration",
+      "content": "Visited local cafés, tea gardens, and viewpoints. No strict plan — just walked around and explored slowly. Evening again at Mall Road."
+    },
+    {
+      "day": 3,
+      "title": "Lamahatta — the quiet side",
+      "content": "Took a local ride to Lamahatta (40–45 mins). Completely peaceful — pine forests, prayer flags, and walking trails. Spent hours doing nothing."
+    },
+    {
+      "day": 4,
+      "title": "Flexible / return",
+      "content": "Optional sunrise (Tiger Hill) or free morning. Then return to Siliguri and back to Kolkata."
+    }
+  ],
+
+  "tips": [
+  "Use NBSTC bus (₹105) — cheapest and reliable option.",
+  "Stay near Mall Road for easy access.",
+  "Visit Lamahatta early morning for best experience.",
+  "Carry light jacket — weather changes quickly.",
+  "Avoid peak crowd weekends if possible.",
+  "Must try: Momos, Thukpa, and Darjeeling tea at local cafés — simple places often taste better than fancy ones.",
+  "Underrated: Walk towards Lamahatta eco park trails or explore quiet roads beyond main market — less crowd, better views."
+],
+
+  "budget": {
+    "total": "₹6,500",
+    "note": "Per person for 3–4 days (Kolkata to Darjeeling round trip + stay + food + local travel).",
+    "items": [
+      { "label": "Train/Bus (Kolkata ↔ Siliguri)", "amount": "₹900" },
+      { "label": "NBSTC Bus (Siliguri ↔ Darjeeling)", "amount": "₹210" },
+      { "label": "Stay (2–3 nights)", "amount": "₹2,000" },
+      { "label": "Food (local + cafés)", "amount": "₹1,800" },
+      { "label": "Local travel (Lamahatta, short rides)", "amount": "₹800" },
+      { "label": "Miscellaneous / buffer", "amount": "₹790" }
+    ]
+  },
+
+  "relatedTripSlug": "darjeeling",
+
+  "duration": "17 Days",
+  "avgPerDay": "₹450–₹600",
+  "includes": "Stay, food, transport, local travel"
+},
+
+
+{
+  "slug": "hampta-pass",
+  "place": "Hampta Pass / Chandratal, Himachal Pradesh",
+  "title": "The Trek That Changed How I See Myself",
+  "subtitle": "My first trek — where fear, nature, and clarity all came together.",
+  "shortDesc": "From green valleys to snow and desert landscapes — a journey that pushes you physically and mentally.",
+  "tags": ["Trek", "Mountains", "Adventure", "First Trek"],
+  "image": "https://as2.ftcdn.net/v2/jpg/06/79/32/77/1000_F_679327770_Y26ai4MS4S1ef4IOO3qyWri6eDlZVvvW.jpg",
+  "heroImage": "https://as2.ftcdn.net/v2/jpg/06/79/32/77/1000_F_679327770_Y26ai4MS4S1ef4IOO3qyWri6eDlZVvvW.jpg",
+
+  "founderNote": "This was my first real step into the mountains. I went with fear — heights, unknown, everything. I came back different. Somewhere between those climbs and silence, I realized — you either love the mountains, or you don’t. There’s no middle.",
+
+  "story": [
+    "Hampta Pass wasn’t just a trek for me — it was a turning point. My first proper trek, and honestly, I was scared before starting.",
+    "The first day started with green valleys — soft, open meadows, almost peaceful. But slowly, the terrain started changing.",
+    "From green to rocky brown, and then to snow. It felt like walking through different worlds in just a few days.",
+    "Crossing the pass was the hardest part — physically and mentally. But once you do it, something shifts inside you.",
+    "And then Chandratal. Completely different — cold, silent, and unreal. That moment just stays with you.",
+    "This trek made me realize something simple — mountains aren’t casual. Either you love them deeply, or you don’t connect at all."
+  ],
+
+  "days": [
+    {
+      "day": 1,
+      "title": "Delhi → Manali",
+      "content": "Overnight bus from Delhi to Manali (₹600 approx). Reached Manali by morning. Used Manali as a halt, not a destination."
+    },
+    {
+      "day": 2,
+      "title": "Manali → Jobra → Trek starts",
+      "content": "Reached basecamp (Jobra) via trek company vehicle. Started trek through forest trails and reached first campsite in green meadows."
+    },
+    {
+      "day": 3,
+      "title": "Jwara to Balu Ka Ghera",
+      "content": "Long walk through changing terrain — from green valleys to rocky landscapes. Campsite surrounded by mountains."
+    },
+    {
+      "day": 4,
+      "title": "Hampta Pass crossing",
+      "content": "The toughest day. Steep climb, snow patches, and finally crossing Hampta Pass. Descended to Spiti side — completely different landscape."
+    },
+    {
+      "day": 5,
+      "title": "Chandratal Lake",
+      "content": "Visited Chandratal — cold, silent, and unreal. One of the most beautiful places I’ve seen."
+    },
+    {
+      "day": 6,
+      "title": "Return to Manali",
+      "content": "Drive back to Manali. Rest day. Explored local market and nearby areas."
+    },
+    {
+      "day": 7,
+      "title": "Sethan village exploration",
+      "content": "Visited Sethan village — quiet, less crowded, and much better than busy Manali."
+    }
+  ],
+
+  "tips": [
+    "Choose a good trek company — I went with Searching Souls (~₹8000 Manali to Manali) and had a great experience.",
+    "Indiahikes is premium and one of the best — but costs more.",
+    "Carry proper trekking shoes and warm layers — weather changes fast.",
+    "Your first trek will test you mentally more than physically.",
+    "Don’t treat Manali as a destination — it’s crowded and overhyped.",
+    "Must visit: Sethan village — peaceful and underrated compared to Manali.",
+    "Stay hydrated and follow your guide — safety matters a lot in this trek."
+  ],
+
+  "budget": {
+    "total": "₹10,500",
+    "note": "Per person for full trek (Delhi to Delhi, including trek package, travel, and local exploration).",
+    "items": [
+      { "label": "Bus (Delhi ↔ Manali)", "amount": "₹1,200" },
+      { "label": "Trek package (Searching Souls, 5 days)", "amount": "₹8,000" },
+      { "label": "Local exploration (Sethan + Manali)", "amount": "₹500" },
+      { "label": "Miscellaneous / buffer", "amount": "₹800" }
+    ]
+  },
+
+  "relatedTripSlug": "hampta-pass",
+
+  "duration": "6–7 Days",
+  "avgPerDay": "₹1500–₹1800",
+  "includes": "Travel, trek package, food, stay, guide"
+},
+
+{
+  "slug": "kuari-pass",
+  "place": "Kuari Pass, Uttarakhand",
+  "title": "The Trek Where I First Saw Real Snow",
+  "subtitle": "Freezing nights, white landscapes, and lessons I didn’t expect to learn.",
+  "shortDesc": "A winter trek with real snow experience — less crowded, more raw than popular routes.",
+  "tags": ["Trek", "Snow", "Winter", "First Snow"],
+  "image": "https://images.unsplash.com/photo-1549880338-65ddcdfd017b?w=800&q=80",
+  "heroImage": "https://images.unsplash.com/photo-1549880338-65ddcdfd017b?w=1920&q=80",
+
+  "founderNote": "This was my first real snow experience. -15°C, frozen water, and nights that test you. But somewhere in that cold, I learned how to handle discomfort — and enjoy it.",
+
+  "story": [
+    "Kuari Pass was my first time experiencing real snow — not just seeing it, but living in it.",
+    "Temperatures dropped to around -15°C. Water bottles froze. Hands went numb if you stayed still too long.",
+    "But once you start walking, something changes. The cold becomes part of the experience.",
+    "The trail was covered in snow — clean, silent, and raw. No noise, no distractions, just you and the mountains.",
+    "This trek taught me something simple — it’s not about carrying more, it’s about carrying smart. And understanding how to adapt."
+  ],
+
+  "days": [
+    {
+      "day": 1,
+      "title": "Delhi → Rishikesh",
+      "content": "Overnight bus from Delhi to Rishikesh (₹450 approx). Reached early morning and met trek group."
+    },
+    {
+      "day": 2,
+      "title": "Rishikesh → Basecamp",
+      "content": "Drive to basecamp (Joshimath side). Long but scenic journey through mountains."
+    },
+    {
+      "day": 3,
+      "title": "Trek begins — snow starts",
+      "content": "Started trek. First signs of snow on trail. Cold increased, but manageable while walking."
+    },
+    {
+      "day": 4,
+      "title": "Deeper into snow zone",
+      "content": "Trail fully covered in snow. Walking became slower. Campsite extremely cold at night."
+    },
+    {
+      "day": 5,
+      "title": "Kuari Pass summit",
+      "content": "Reached Kuari Pass. Clear views of Himalayan peaks. Cold wind, but unforgettable moment."
+    },
+    {
+      "day": 6,
+      "title": "Return trek + basecamp",
+      "content": "Descended back through same trail. Slightly easier but still tiring."
+    },
+    {
+      "day": 7,
+      "title": "Return to Rishikesh → Delhi",
+      "content": "Drive back to Rishikesh and overnight bus to Delhi."
+    }
+  ],
+
+  "tips": [
+    "Carry proper thermal layers — layering matters more than heavy jackets.",
+    "Warmee or heat packs are very useful — almost lifesaving in extreme cold.",
+    "Pack light — don’t carry unnecessary items.",
+    "Good trekking shoes are a must (snow grip matters).",
+    "Stay hydrated even if you don’t feel thirsty.",
+    "Kuari Pass is a better choice than Kedarkantha if you want less crowd and more real experience.",
+    "Mentally prepare for cold — it’s not easy, but worth it."
+  ],
+
+  "budget": {
+    "total": "₹10,500",
+    "note": "Per person for full trek (Delhi to Delhi including trek package and travel).",
+    "items": [
+      { "label": "Bus (Delhi ↔ Rishikesh)", "amount": "₹900" },
+      { "label": "Trek package (Searching Souls)", "amount": "₹8,600" },
+      { "label": "Local expenses + food buffer", "amount": "₹500" },
+      { "label": "Miscellaneous / buffer", "amount": "₹500" }
+    ]
+  },
+
+  "relatedTripSlug": "kuari-pass",
+
+  "duration": "6–7 Days",
+  "avgPerDay": "₹1500–₹1700",
+  "includes": "Travel, trek package, stay, food, guide"
+},
+
+{
+  "slug": "kasol-kalga",
+  "place": "Kasol / Kalga Village, Himachal Pradesh",
+  "title": "Where I Finally Slowed Down",
+  "subtitle": "A quiet village above Kasol where time moves slower and everything feels lighter.",
+  "shortDesc": "Kalga offers peace, forests, and real mountain life — away from Kasol’s crowd.",
+  "tags": ["Mountains", "Village Life", "Relax", "4 Days"],
+  "image": "https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?w=800&q=80",
+  "heroImage": "https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?w=1920&q=80",
+
+  "founderNote": "Kasol is crowded, but Kalga changed the whole experience for me. Staying there felt peaceful, simple, and real — the kind of place where you don’t feel like leaving.",
+
+  "story": [
+    "Most people go to Kasol and stay there. I did too at first — but it felt crowded and noisy.",
+    "Then I moved to Kalga village, just a short distance away, and everything changed.",
+    "Kalga is quiet. No loud cafés, no rush — just wooden houses, apple trees, and mountain views.",
+    "I stayed there for 4 days, doing almost nothing — walking around, exploring nearby villages, and just relaxing.",
+    "Food was slightly expensive compared to cities, but worth it. One small homestay served chicken curry and rice — simple, but one of the best meals I had.",
+    "This place is not about doing things. It’s about slowing down and feeling the mountains."
+  ],
+
+  "days": [
+    {
+      "day": 1,
+      "title": "Delhi → Kasol → Kalga",
+      "content": "Overnight bus from Delhi to Kasol. From Kasol, took local transport to Barshaini and short hike/ride to Kalga village. Checked into homestay and relaxed."
+    },
+    {
+      "day": 2,
+      "title": "Kalga village exploration",
+      "content": "Walked around Kalga — explored forests, small trails, and nearby viewpoints. Completely peaceful day."
+    },
+    {
+      "day": 3,
+      "title": "Kheerganga trek",
+      "content": "Started early (7–8 AM) for Kheerganga trek (~12 km). Trail passes through forests, waterfalls, and small dhabas. Reached top by afternoon. Hot water spring experience."
+    },
+    {
+      "day": 4,
+      "title": "Nearby villages — Tosh / Pulga",
+      "content": "Explored nearby villages like Tosh and Pulga. Each has a different vibe — Tosh slightly lively, Pulga more quiet."
+    },
+    {
+      "day": 5,
+      "title": "Return journey",
+      "content": "Descended back to Barshaini → Kasol → overnight bus to Delhi."
+    }
+  ],
+
+  "tips": [
+    "Stay in Kalga instead of Kasol for a peaceful experience.",
+    "Start Kheerganga trek early (7–8 AM) to avoid rush and heat.",
+    "Food is slightly expensive but worth it — quality is good.",
+    "Must try: Simple homestay meals (like chicken curry + rice) — very homely taste.",
+    "Carry cash — limited digital payment options.",
+    "Explore nearby villages: Tosh (lively) and Pulga (quiet, underrated).",
+    "Walk around forests in Kalga — best experience is unplanned exploration."
+  ],
+
+  "budget": {
+    "total": "₹6,500",
+    "note": "Per person for 3–4 days (Delhi to Kasol round trip + stay + food + local travel).",
+    "items": [
+      { "label": "Bus (Delhi ↔ Kasol)", "amount": "₹1,200" },
+      { "label": "Local transport (Kasol ↔ Barshaini ↔ Kalga)", "amount": "₹600" },
+      { "label": "Homestay (4 nights)", "amount": "₹2,800" },
+      { "label": "Food (local + cafés)", "amount": "₹,500" },
+      { "label": "Kheerganga trek expenses", "amount": "₹200" },
+      { "label": "Miscellaneous / buffer", "amount": "₹200" }
+    ]
+  },
+
+  "relatedTripSlug": "kasol",
+
+  "duration": "4–5 Days",
+  "avgPerDay": "₹1100–₹1300",
+  "includes": "Stay, food, transport, trek basics"
+},
+{
+  "slug": "sissu",
+  "place": "Sissu, Himachal Pradesh",
+  "title": "Not for Everyone — But Unforgettable If It Connects",
+  "subtitle": "A quiet Himalayan stop where silence, stars, and simplicity take over.",
+  "shortDesc": "A peaceful village beyond Atal Tunnel with waterfalls, clean skies, and raw mountain vibe.",
+  "tags": ["Mountains", "Offbeat", "2 Days", "Stargazing"],
+  "image": "https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=800&q=80",
+  "heroImage": "https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=1920&q=80",
+
+  "founderNote": "Sissu is not for everyone — but if it connects, you’ll never forget it. Clean air, quiet nights, and a sky full of stars.",
+
+  "story": [
+    "I stopped at Sissu after Manali — just a 2-day stay, but it felt completely different from the usual Himachal spots.",
+    "Crossing Atal Tunnel changes the landscape instantly. It feels raw, open, and less crowded.",
+    "Sissu is quiet. No chaos, no loud cafés — just mountains, clean air, and space.",
+    "The waterfall here is beautiful — and you can even reach it through a zipline, which makes the experience different.",
+    "But the best part was the night. Clear sky, no light pollution, and full stargazing. That’s something you don’t easily get in crowded places.",
+    "This place is not special for everyone — but for the right kind of traveler, it becomes unforgettable."
+  ],
+
+  "days": [
+    {
+      "day": 1,
+      "title": "Delhi → Manali (halt)",
+      "content": "Overnight bus from Delhi to Manali. Stayed for a short halt. Manali felt crowded and busy."
+    },
+    {
+      "day": 2,
+      "title": "Manali → Atal Tunnel → Sissu",
+      "content": "Crossed Atal Tunnel and reached Sissu (1–1.5 hrs). Landscape changes completely after the tunnel. Checked into stay and explored nearby areas."
+    },
+    {
+      "day": 3,
+      "title": "Waterfall & stargazing",
+      "content": "Visited Sissu waterfall — can also try zipline for a different experience. Evening and night spent stargazing under clear sky."
+    },
+    {
+      "day": 4,
+      "title": "Return",
+      "content": "Returned back via Atal Tunnel to Manali and continued journey back."
+    }
+  ],
+
+  "tips": [
+    "Use Manali only as a halt — not the main stay.",
+    "Stay options are limited — book in advance.",
+    "Food is slightly expensive but worth it due to remote location.",
+    "Must try: Local Himachali food in small cafés or homestays.",
+    "Don’t miss stargazing — one of the best experiences here.",
+    "Visit Sissu waterfall and try zipline if available.",
+    "This place is best for people who enjoy silence and slow travel."
+  ],
+
+  "budget": {
+    "total": "₹5,900",
+    "note": "Per person for 2–3 days (Delhi to Sissu round trip + stay + food + local travel).",
+    "items": [
+      { "label": "Bus (Delhi ↔ Manali)", "amount": "₹1,200" },
+      { "label": "Local transport (Manali ↔ Sissu)", "amount": "₹600" },
+      { "label": "Stay (2 nights)", "amount": "₹2,200" },
+      { "label": "Food (limited options)", "amount": "₹1,200" },
+      { "label": "Zipline / local activities", "amount": "₹200" },
+      { "label": "Miscellaneous / buffer", "amount": "₹500" }
+    ]
+  },
+
+  "relatedTripSlug": "sissu",
+
+  "duration": "2–3 Days",
+  "avgPerDay": "₹1500–₹1800",
+  "includes": "Stay, food, transport, basic activities"
+},
+
+{
+  "slug": "rishikesh-tapovan",
+  "place": "Rishikesh (Tapovan), Uttarakhand",
+  "title": "My Go-To Place When I Want to Reset",
+  "subtitle": "Cafés, conversations, and a place that always feels familiar no matter how many times I visit.",
+  "shortDesc": "A mix of calm café life, river views, and global traveler vibes in the yoga capital of India.",
+  "tags": ["Mountains", "Cafes", "Solo Travel", "Repeat Visits"],
+  "image": "https://images.unsplash.com/photo-1548013146-72479768bada?w=800&q=80",
+  "heroImage": "https://images.unsplash.com/photo-1548013146-72479768bada?w=1920&q=80",
+
+  "founderNote": "Rishikesh (Tapovan) is my default reset place. I’ve been here multiple times — not for sightseeing, but for the vibe, the people, and the feeling of just being.",
+
+  "story": [
+    "Rishikesh is not just a place I visited — it’s a place I keep going back to.",
+    "Tapovan especially has a different energy. You walk around and easily 6 out of 10 people are foreigners. It doesn’t feel like a typical Indian town.",
+    "Café hopping became my routine here. Sitting for hours with coffee, looking at the mountains, watching people come and go.",
+    "What made it special for me was the people. I met travelers from Spain, Australia, Japan, Israel, Kyrgyzstan, Uzbekistan, Vietnam — and had real conversations.",
+    "You learn a lot from them — how they see travel, how they live, how differently they think.",
+    "Some of them even invited me to visit their countries — jokingly, I feel like I already have free stays booked worldwide now.",
+    "Evenings at the ghats are simple but powerful. Sitting quietly, sipping ginger lemon honey tea, watching the Ganga flow — that’s enough."
+  ],
+
+  "days": [
+    {
+      "day": 1,
+      "title": "Delhi → Nepali farm →Rishikesh (Tapovan)",
+      "content": "Bus from Delhi to Nepali farm (₹400–₹500) to Tapovan (share taxi 100/) . Reached Tapovan area and checked into hostel/homestay. Evening walk around cafés."
+    },
+    {
+      "day": 2,
+      "title": "Café hopping & local exploration",
+      "content": "Explored cafés like Moktan Café and small bakeries. Spent time working, relaxing, and meeting new people."
+    },
+    {
+      "day": 3,
+      "title": "Activities & Ghat time",
+      "content": "Optional activities like rafting, bungee jumping. Evening spent at ghats with tea and calm surroundings."
+    },
+    {
+      "day": 4,
+      "title": "Flexible / slow day",
+      "content": "No fixed plan — just café hopping, conversations, and enjoying the vibe."
+    }
+  ],
+
+  "tips": [
+    "Stay in Tapovan area — best mix of calm and café culture.",
+    "Must try: Moktan Café and local bakeries.",
+    "Only veg food available — but variety is good.",
+    "Try ginger lemon honey tea at ghats — simple but perfect.",
+    "Café hopping is the main experience here.",
+    "Talk to fellow travelers — you’ll learn a lot.",
+    "Best place for solo travelers and slow travel vibe."
+  ],
+
+  "budget": {
+    "total": "₹5,500",
+    "note": "Per person for 3–4 days (Delhi to Rishikesh round trip + stay + food + basic activities).",
+    "items": [
+      { "label": "Bus (Delhi ↔ Rishikesh)", "amount": "₹900" },
+      { "label": "Stay (3 nights hostel/homestay)", "amount": "₹1,800" },
+      { "label": "Food (cafés + local)", "amount": "₹2,200" },
+      { "label": "Local transport + small expenses", "amount": "₹300" },
+      { "label": "Miscellaneous / buffer", "amount": "₹300" }
+    ]
+  },
+
+  "relatedTripSlug": "rishikesh",
+
+  "duration": "19 Days",
+  "avgPerDay": "₹1200–₹1500",
+  "includes": "Stay, food, local travel, basic activities"
+}
 ]

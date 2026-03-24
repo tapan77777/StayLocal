@@ -1,5 +1,5 @@
+import { ArrowLeft, BadgeIndianRupee, Lightbulb, MapPin, PackageCheck, Timer, Wallet } from 'lucide-react';
 import Link from 'next/link';
-import { ArrowLeft, Lightbulb, MapPin, Wallet } from 'lucide-react';
 
 /* ─── Experience Detail ────────────────────────────────────────────────── */
 const ExperienceDetail = ({ experience }) => (
@@ -45,6 +45,46 @@ const ExperienceDetail = ({ experience }) => (
 
     {/* ── Content ───────────────────────────────────────────────────────── */}
     <div className="max-w-3xl mx-auto px-5 sm:px-6 py-10 sm:py-16">
+
+      {/* ── Summary highlight strip ── */}
+      {(experience.duration || experience.avgPerDay || experience.includes) && (
+        <div className="flex flex-col sm:flex-row gap-3 sm:gap-0 sm:divide-x sm:divide-slate-200
+                        bg-slate-50 border border-slate-100 rounded-2xl overflow-hidden mb-10 sm:mb-14">
+          {experience.duration && (
+            <div className="flex items-center gap-3 px-5 py-4 sm:flex-1">
+              <div className="w-8 h-8 rounded-xl bg-emerald-100 flex items-center justify-center flex-shrink-0">
+                <Timer className="w-4 h-4 text-emerald-600" />
+              </div>
+              <div className="min-w-0">
+                <p className="text-xs text-slate-400 font-medium uppercase tracking-wide leading-none mb-1">I Stayed here for</p>
+                <p className="text-sm font-semibold text-slate-800 leading-snug">{experience.duration}</p>
+              </div>
+            </div>
+          )}
+          {experience.avgPerDay && (
+            <div className="flex items-center gap-3 px-5 py-4 sm:flex-1">
+              <div className="w-8 h-8 rounded-xl bg-amber-100 flex items-center justify-center flex-shrink-0">
+                <BadgeIndianRupee className="w-4 h-4 text-amber-600" />
+              </div>
+              <div className="min-w-0">
+                <p className="text-xs text-slate-400 font-medium uppercase tracking-wide leading-none mb-1">Avg / day</p>
+                <p className="text-sm font-semibold text-slate-800 leading-snug">{experience.avgPerDay}</p>
+              </div>
+            </div>
+          )}
+          {experience.includes && (
+            <div className="flex items-center gap-3 px-5 py-4 sm:flex-1">
+              <div className="w-8 h-8 rounded-xl bg-sky-100 flex items-center justify-center flex-shrink-0">
+                <PackageCheck className="w-4 h-4 text-sky-600" />
+              </div>
+              <div className="min-w-0">
+                <p className="text-xs text-slate-400 font-medium uppercase tracking-wide leading-none mb-1">Includes</p>
+                <p className="text-sm font-semibold text-slate-800 leading-snug">{experience.includes}</p>
+              </div>
+            </div>
+          )}
+        </div>
+      )}
 
       {/* Founder note highlight */}
       <div className="bg-emerald-50 border-l-4 border-emerald-500 rounded-r-2xl p-5 sm:p-6 mb-10 sm:mb-14">
